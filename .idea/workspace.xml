@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="ce0b8765-7167-464e-8576-e23b5c4def33" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
+=======
+    <list default="true" id="ed1affa3-65d5-4ff4-a8d1-3b2982123d73" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pageobjects/LoginPage.java" afterDir="false" />
+    </list>
+>>>>>>> 210e2a8720e4fcb91788ec11c1ea189b575d1de3
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,6 +18,29 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
+=======
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="LoginPage.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pageobjects/LoginPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+>>>>>>> 210e2a8720e4fcb91788ec11c1ea189b575d1de3
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -19,14 +50,20 @@
     <option name="width" value="1382" />
     <option name="height" value="754" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+=======
+>>>>>>> 210e2a8720e4fcb91788ec11c1ea189b575d1de3
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+<<<<<<< HEAD
       <pane id="AndroidView" />
+=======
+>>>>>>> 210e2a8720e4fcb91788ec11c1ea189b575d1de3
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -40,10 +77,20 @@
               <item name="PhpTravels" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
+=======
+            <path>
+              <item name="PhpTravels" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PhpTravels" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pageobjects" type="462c0819:PsiDirectoryNode" />
+            </path>
+>>>>>>> 210e2a8720e4fcb91788ec11c1ea189b575d1de3
           </expand>
           <select />
         </subPane>
       </pane>
+<<<<<<< HEAD
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -57,6 +104,17 @@
       <recent name="C:\Users\gapuser\IdeaProjects\PhpTravels\resources" />
     </key>
   </component>
+=======
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/WebDriver/client-combined-3.12.0.jar!/" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+>>>>>>> 210e2a8720e4fcb91788ec11c1ea189b575d1de3
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -117,11 +175,19 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="ce0b8765-7167-464e-8576-e23b5c4def33" name="Default" comment="" />
       <created>1530888098748</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1530888098748</updated>
+=======
+      <changelist id="ed1affa3-65d5-4ff4-a8d1-3b2982123d73" name="Default" comment="" />
+      <created>1530890528930</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1530890528930</updated>
+>>>>>>> 210e2a8720e4fcb91788ec11c1ea189b575d1de3
     </task>
     <servers />
   </component>
@@ -158,6 +224,7 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+<<<<<<< HEAD
   <component name="masterDetails">
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
@@ -231,5 +298,15 @@
         </settings>
       </state>
     </states>
+=======
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/pageobjects/LoginPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+>>>>>>> 210e2a8720e4fcb91788ec11c1ea189b575d1de3
   </component>
 </project>
