@@ -4,4 +4,9 @@ public class tiquicia {
 	System.out.println(tome);
 	System.out.println(nombre);
 	}
+
+	public PorqueAbajo maeNombres(){
+		string algo = null;
+		return PorqueAbajo;
+	}
 }
