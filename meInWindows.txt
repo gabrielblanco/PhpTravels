@@ -1,4 +1,8 @@
 test
 mejor asi mae?
+<<<<<<< HEAD
 
 mejor
+=======
+comete un snicker..
+>>>>>>> d2492f23e68973f9b3570efe5ab56efa6d136123
