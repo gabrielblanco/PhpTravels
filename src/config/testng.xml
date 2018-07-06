@@ -5,7 +5,7 @@
     <parameter name="baseUrl" value="https://www.phptravels.net/login"/>
     <test name="ChromeTest">
         <classes>
-            <class name="Tests.LoginTests" />
+            <class name="tests.LoginTest" />
         </classes>
     </test>
 </suite>
