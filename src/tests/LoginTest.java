@@ -22,7 +22,7 @@ public class LoginTest extends BaseTest{
 		driver=getDriver();
 	}
 	/**
-	 * This test case validates if user's can login 
+	 * This test case validates that the user can login 
 	 * @param email
 	 * @param password
 	 * @throws InterruptedException 

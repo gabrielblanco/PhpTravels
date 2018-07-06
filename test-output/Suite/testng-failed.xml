@@ -5,14 +5,14 @@
   <parameter name="browser" value="chrome"/>
   <test thread-count="5" name="ChromeTest(failed)">
     <classes>
-      <class name="tests.LoginTest">
+      <class name="tests.HotelTest">
         <methods>
           <include name="initializeTestBaseSetup"/>
-          <include name="CorrectLogin" invocation-numbers="0"/>
+          <include name="AddHotelToWishList" invocation-numbers="0"/>
           <include name="CloseWindow"/>
           <include name="setUp"/>
         </methods>
-      </class> <!-- tests.LoginTest -->
+      </class> <!-- tests.HotelTest -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

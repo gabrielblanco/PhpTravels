@@ -9,4 +9,10 @@ public class LoginDataProvider {
         	{"user@phptravels.com", "demouser","https://www.phptravels.net/account/"}
          };
     }
+	@DataProvider(name = "loginAuthenticationWithOutURL")
+    public static Object[][] loginData(){
+        return new Object[][] {
+        	{"user@phptravels.com", "demouser"}
+         };
+    }
 }
