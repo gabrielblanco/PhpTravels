@@ -2,7 +2,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite">
     <parameter name="browser" value="chrome" />
-    <parameter name="baseUrl" value="https://www.phptravels.net/login"/>
+    <parameter name="baseUrl" value="https://www.phptravels.net"/>
     <test name="ChromeTest">
         <classes>
             <class name="tests.LoginTest" />

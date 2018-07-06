@@ -9,13 +9,14 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import pageobjects.HeaderObjects;
 import pageobjects.LoginPage;
 
 
 public class LoginTest extends BaseTest{
 	private WebDriver driver;
 	private LoginPage loginPage;
-	
+	private HeaderObjects headerObjects;
 	@BeforeClass
 	public void setUp() {
 		driver=getDriver();
@@ -28,6 +29,11 @@ public class LoginTest extends BaseTest{
 	 */
 	@Test(dataProvider = "loginAuthentication", dataProviderClass= data_providers.LoginDataProvider.class, enabled=true)
 	public void CorrectLogin(String email,String password,String espectedURL) throws InterruptedException {
+		headerObjects= new HeaderObjects(driver);
+		headerObjects.DisplayMyAccountDropDown();
+		Thread.sleep(3000);
+		headerObjects.SelectLoginItem();
+		Thread.sleep(3000);
 		loginPage=new LoginPage(this.driver);
 		loginPage.Login(email, password);	
 		Thread.sleep(6000);

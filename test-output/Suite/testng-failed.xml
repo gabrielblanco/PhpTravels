@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
+  <parameter name="baseUrl" value="https://www.phptravels.net"/>
+  <parameter name="browser" value="chrome"/>
+  <test thread-count="5" name="ChromeTest(failed)">
+    <classes>
+      <class name="tests.LoginTest">
+        <methods>
+          <include name="initializeTestBaseSetup"/>
+          <include name="CorrectLogin" invocation-numbers="0"/>
+          <include name="CloseWindow"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- tests.LoginTest -->
+    </classes>
+  </test> <!-- ChromeTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
