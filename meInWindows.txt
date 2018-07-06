@@ -1,5 +1,12 @@
 public class tiquicia {
 	
+	String tome, name;
+
+	public tiquicia (Sting tome, String name){
+		this.tome = tome;
+		this.nombre = nombre;
+	}
+	
 	public void tomePalPinto(string tome, string nombre){
 	System.out.println(tome);
 	System.out.println(nombre);
