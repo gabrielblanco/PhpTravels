@@ -3,6 +3,7 @@ public class tiquicia {
 	String tome, name;
 
 	public tiquicia (Sting tome, String name){
+		this.mae="conflicto";
 		this.tome = tome;
 		this.nombre = nombre;
 	}
