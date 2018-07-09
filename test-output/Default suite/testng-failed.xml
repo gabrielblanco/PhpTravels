@@ -5,9 +5,9 @@
     <classes>
       <class name="tests.HotelTest">
         <methods>
-          <include name="initializeTestBaseSetup"/>
-          <include name="CorrectLogin"/>
           <include name="CloseWindow"/>
+          <include name="initializeTestBaseSetup"/>
+          <include name="AddHotelToWishList"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- tests.HotelTest -->
