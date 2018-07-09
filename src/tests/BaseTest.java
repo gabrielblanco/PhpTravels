@@ -29,8 +29,8 @@ public class BaseTest {
 	}
 	/**
 	 * This method create a new webDriver
-	 * @param browserName
-	 * @param url
+	 * @param browser
+	 * @param baseUrl
 	 * @return
 	 */
 	public static void setDriver(String browser,String baseUrl) {
@@ -54,7 +54,8 @@ public class BaseTest {
 	 */
 	private static WebDriver initChromeDriver(String baseUrl) {
 		System.out.println("Launching google chrome with new profile..");
-		System.setProperty("webdriver.chrome.driver",  chromeDriverPath);
+//		System.setProperty("webdriver.chrome.driver",  chromeDriverPath);
+		System.setProperty("webdriver.chrome.driver",  "C:\\Users\\gapuser\\Documents\\WebDriver\\chromedriver\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to(baseUrl);
@@ -75,8 +76,8 @@ public class BaseTest {
 	}
 	/**
 	 * This method initialize the testBaseSetup
-	 * @param browserType
-	 * @param appURL
+	 * @param browser
+	 * @param baseUrl
 	 */
 	@Parameters({ "browser", "baseUrl" })
 	@BeforeClass

@@ -24,14 +24,14 @@ public class HeaderObjects {
  @FindBy(xpath="//a[@class='loader'][contains(text(),'Visa')]") WebElement visa;
  @FindBy(xpath="//a[@class='loader'][contains(text(),'Offers')]") WebElement offers;
  @FindBy(xpath="//a[@class='loader'][contains(text(),'Blog')]") WebElement blog;
- @FindBy(xpath="//ul[@class='nav navbar-nav navbar-right']//ul[@class='nav navbar-nav navbar-side navbar-right sidebar go-left']//li[@id='li_myaccount']//a[@href='javascript:void(0);']") WebElement MyAcountDropDown;
+ @FindBy(xpath="//div[@class='container']//li[@id='li_myaccount']") WebElement MyAcountDropDown;
 
 	/**
 	 * Constructor method
-	 * @param driverP
+	 * @param driver
 	 */
-	public HeaderObjects(WebDriver driverP) {
-		driver= driverP;
+	public HeaderObjects(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	/**
