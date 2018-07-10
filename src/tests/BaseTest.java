@@ -54,13 +54,13 @@ public class BaseTest {
 	 */
 	private static WebDriver initChromeDriver(String baseUrl) {
 		System.out.println("Launching google chrome with new profile..");
-//		System.setProperty("webdriver.chrome.driver",  chromeDriverPath);
-		System.setProperty("webdriver.chrome.driver",  "C:\\Users\\gapuser\\Documents\\WebDriver\\chromedriver\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver",  chromeDriverPath);
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to(baseUrl);
 		return driver;
 	}
+	
 	/**
 	 * This method starts fireFoxDriver
 	 * @param baseUrl
@@ -68,7 +68,7 @@ public class BaseTest {
 	 */
 	private static WebDriver initFirefoxDriver(String baseUrl) {
 		System.out.println("Launching Firefox browser..");
-		System.setProperty("webdriver.gecko.driver", chromeDriverPath);
+		System.setProperty("webdriver.gecko.driver", fireFoxDriverPath);
 		WebDriver driver = new FirefoxDriver();
 		driver.manage().window().maximize();
 		driver.navigate().to(baseUrl);
