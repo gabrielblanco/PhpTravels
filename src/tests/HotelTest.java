@@ -12,12 +12,14 @@ import org.testng.annotations.Test;
 import pageobjects.HeaderObjects;
 import pageobjects.HotelsPage;
 import pageobjects.LoginPage;
+import pageobjects.WishListPage;
 
 public class HotelTest extends BaseTest {
 WebDriver driver;
 HeaderObjects headerObjects;
 LoginPage loginPage;
-public HotelsPage hotelPage;
+HotelsPage hotelPage;
+WishListPage wishListPage;
 
 @BeforeClass
 public void setUp() {
@@ -38,11 +40,24 @@ public void AddHotelToWishList(String email,String password) throws InterruptedE
 	Thread.sleep(3000);
 	loginPage=new LoginPage(this.driver);
 	loginPage.Login(email, password);	
-	Thread.sleep(6000);
+	Thread.sleep(5000);
 	driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
 	headerObjects.GoToHotels();
 	hotelPage=new HotelsPage(driver);
+	Thread.sleep(4000);
 	hotelPage.addHotelToWishList();
+	String titleHotelAdded=hotelPage.GetTitleOfFirstHotel();
+	System.out.println(titleHotelAdded);
+	headerObjects.DisplayMyAccountDropDown();
+	Thread.sleep(3000);
+	headerObjects.SelectAccountItem();
+	Thread.sleep(3000);
+	wishListPage=new WishListPage(driver);
+	wishListPage.GoToWishList();
+	Thread.sleep(2000);
+	String titleWish=wishListPage.GetTitleOfFirstWish();
+	System.out.println(titleWish);
+	assertEquals(titleWish, titleHotelAdded,"Los hoteles no coinciden, Hotel no agregado.");
 }
 /**
  * This test close the browser window
