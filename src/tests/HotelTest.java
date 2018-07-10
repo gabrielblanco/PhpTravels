@@ -41,7 +41,6 @@ public void AddHotelToWishList(String email,String password) throws InterruptedE
 	loginPage=new LoginPage(this.driver);
 	loginPage.Login(email, password);	
 	Thread.sleep(5000);
-	driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
 	headerObjects.GoToHotels();
 	hotelPage=new HotelsPage(driver);
 	Thread.sleep(4000);
