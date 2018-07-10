@@ -24,6 +24,7 @@ public class HotelsPage {
 	@FindBy(className = "itemscontainer") WebElement itemsContainer;
 	LinkedList<WebElement> hotelsList;
 	@FindBy(xpath="//div[@id='body-section']//tbody//tr[3]//td[1]") WebElement firstHotel;
+	@FindBy(id = "searchform") WebElement searchFilterButton;
 	
 	/**
 	 * Constructor method.
@@ -50,6 +51,16 @@ public class HotelsPage {
 	 */
 	public void addHotelToWishList() {
 	   hotelsList.get(0).findElement(By.xpath("//div[contains(@data-placement, 'left')]")).click();
+	}
+
+	/**
+	 * Filter a hotel by selecting a property type.
+	 * @param propertyType is the property type
+	 */
+	public void findByProperty(String propertyType){
+		WebElement property = driver.findElement(By.xpath("//div[@id='collapse3']//input[@id='" + propertyType + "']/parent::div/ins"));
+		property.click();
+		searchFilterButton.click();
 	}
   
 	/**
