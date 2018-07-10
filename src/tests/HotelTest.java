@@ -46,19 +46,18 @@ public void AddHotelToWishList(String email,String password) throws InterruptedE
 	hotelPage=new HotelsPage(driver);
 	Thread.sleep(4000);
 	hotelPage.addHotelToWishList();
-	String title=hotelPage.GetNameOfHotel();
-	System.out.println(title);
-	
+	String titleHotelAdded=hotelPage.GetTitleOfFirstHotel();
+	System.out.println(titleHotelAdded);
 	headerObjects.DisplayMyAccountDropDown();
 	Thread.sleep(3000);
-	headerObjects.SelectLoginItem();
+	headerObjects.SelectAccountItem();
 	Thread.sleep(3000);
 	wishListPage=new WishListPage(driver);
 	wishListPage.GoToWishList();
-	Thread.sleep(3000);
-	String titleWish=hotelPage.GetNameOfHotel();
+	Thread.sleep(2000);
+	String titleWish=wishListPage.GetTitleOfFirstWish();
 	System.out.println(titleWish);
-	
+	assertEquals(titleWish, titleHotelAdded,"Los hoteles no coinciden, Hotel no agregado.");
 }
 /**
  * This test close the browser window

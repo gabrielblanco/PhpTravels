@@ -12,7 +12,7 @@ public class WishListPage {
 	WebDriver driver;
 	@FindBy(xpath="//a[@href='#wishlist']") WebElement wishListButton;
 	LinkedList<WebElement> wishList;
-	@FindBy(id="wish7") WebElement firstWish;
+	@FindBy(id="wish6") WebElement firstWish;
 	
 	/**
 	 * Constructor method
@@ -31,17 +31,11 @@ public class WishListPage {
 		wishListButton.click();
 	}
 	/**
-	 * This method returns the name of the first hotel of list
+	 * This method returns the title of the first wish of list
 	 * @return
 	 */
-	public String GetNameOfHotel() {
-		String name="";
-		for(int i=0; i<wishList.size(); i++){
-			if(i==0) {
-				name= wishList.get(i).findElement(By.xpath("//div[contains(@class,'col-md-5 offset-0')]//a//b[contains(@xpath,'1')]")).getText();
-				break;
-			}
-		 }
+	public String GetTitleOfFirstWish() {
+		String name= wishList.get(0).findElement(By.xpath("(//div[@class='panel-body']//b)[1]")).getText();
 		return name;
 	}
 }

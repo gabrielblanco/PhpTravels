@@ -16,7 +16,7 @@ public class HeaderObjects {
  @FindBy(xpath="//a[@class='loader'][contains(text(),'Visa')]") WebElement visa;
  @FindBy(xpath="//a[@class='loader'][contains(text(),'Offers')]") WebElement offers;
  @FindBy(xpath="//a[@class='loader'][contains(text(),'Blog')]") WebElement blog;
- @FindBy(xpath="//ul[@class='nav navbar-nav navbar-right']//ul[@class='nav navbar-nav navbar-side navbar-right sidebar go-left']//li[@id='li_myaccount']//a[@href='javascript:void(0);']") WebElement MyAcountDropDown;
+ @FindBy(xpath="//div[@class='container']//ul[contains(@class, 'navbar-side')]/li[1]/a") WebElement MyAcountDropDown;
 
 	/**
 	 * Constructor method
@@ -36,8 +36,14 @@ public class HeaderObjects {
 	 * This method selects the login item from my account drop down
 	 */
 	public void SelectLoginItem() {
-		WebElement loginItem= driver.findElement(By.xpath("//html//nav[@class='navbar navbar-default']//li[@id='li_myaccount']//li[1]/a[1]"));
-		loginItem.click();
+		driver.findElement(By.xpath("//html//nav[@class='navbar navbar-default']//li[@id='li_myaccount']//li[1]/a[1]")).click();
+	}
+	/**
+	 * This method selects the login item from my account drop down
+	 */
+	public void SelectAccountItem() {
+		driver.findElement(By.xpath("//nav[@class='navbar navbar-default']//ul[@class='dropdown-menu']//li[1]")).click();
+		
 	}
 	/**
 	 * This method redirects to the login view

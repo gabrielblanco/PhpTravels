@@ -12,6 +12,7 @@ public class HotelsPage {
 	WebDriver driver;
 	LinkedList<WebElement> hotelsList;
 	@FindBy(xpath="//div[@id='body-section']//tbody//tr[3]//td[1]") WebElement firstHotel;
+	
 	/**
 	 * Constructor method
 	 * @param driverP
@@ -23,28 +24,17 @@ public class HotelsPage {
 		 hotelsList.add(firstHotel);
 		 }
 	/**
-	 * This method returns the name of the first hotel of list
+	 * This method returns the title of the first hotel of the  list
 	 * @return
 	 */
-	public String GetNameOfHotel() {
-		String name="";
-		for(int i=0; i<hotelsList.size(); i++){
-			if(i==0) {
-				name= hotelsList.get(i).findElement(By.xpath("//h4[contains(@class, 'RTL go-text-right mt0 mb4 list_title')]")).getText();
-				break;
-			}
-		 }
+	public String GetTitleOfFirstHotel() {
+		String name= hotelsList.get(0).findElement(By.xpath("//h4[contains(@class, 'RTL go-text-right mt0 mb4 list_title')]")).getText();
 		return name;
 	}
 	/**
 	 * This method clicks on the add to wish list button 
 	 */
 	public void addHotelToWishList() {
-		for(int i=0; i<hotelsList.size(); i++){
-			if(i==0) {
-				hotelsList.get(i).findElement(By.xpath("//div[contains(@data-placement, 'left')]")).click();
-				break;
-			}
-		 }
+	   hotelsList.get(0).findElement(By.xpath("//div[contains(@data-placement, 'left')]")).click();
 	}
 }
