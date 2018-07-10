@@ -18,7 +18,8 @@ public class BaseTest {
 	public static WebDriver driver;
 	String path="C:\\Screen\\";
 	public static String fireFoxDriverPath="resources\\geckodriver.exe";
-	public static String chromeDriverPath="resources\\chromedriver.exe";
+//	public static String chromeDriverPath="resources\\chromedriver.exe";
+	public static String chromeDriverPath="C:\\Users\\gapuser\\Documents\\WebDriver\\chromedriver\\chromedriver.exe";
 	
 	/**
 	 * this method returns a webDriver
