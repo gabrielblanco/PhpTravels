@@ -28,6 +28,15 @@ public class HeaderObjects {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
+
+	/**
+	 * This method makes the step to login.
+	 */
+	public void attemptToLogin() throws InterruptedException {
+		DisplayMyAccountDropDown();
+		Thread.sleep(4000);
+		SelectLoginItem();
+	}
   
 	/**
 	 * This method displays "My account" drop down 
@@ -40,7 +49,7 @@ public class HeaderObjects {
 	 * This method selects the login item from my account drop down
 	 */
 	public void SelectLoginItem() {
-		driver.findElement(By.xpath("//html//nav[@class='navbar navbar-default']//li[@id='li_myaccount']//li[1]/a[1]")).click();
+		driver.findElement(By.xpath("//div[@class='container']//a[@href='https://www.phptravels.net/login']")).click();
 	}
   
 	/**
