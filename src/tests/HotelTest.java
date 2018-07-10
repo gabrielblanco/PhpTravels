@@ -47,6 +47,7 @@ WishListPage wishListPage;
         headerObjects.GoToHotels();
         hotelPage = new HotelsPage(driver);
         hotelPage.findByProperty("Villa");
+	Assert.assertTrue(hotelPage.noHotelsFound(), "No hotels found, The checkout date is previous than checkin date.");
     }
   
 /**
