@@ -2,7 +2,6 @@ package tests;
 
 import static org.testng.Assert.assertEquals;
 
-import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
@@ -24,10 +23,11 @@ WishListPage wishListPage;
     public void setUp() {
 	driver=getDriver();
     }
+  
   /**
   * This test case verifies that a user can't select a checkout date previous that the reservation date.
   */
-    @Test
+    @Test (enabled = false)
     public void validateCheckIn_CheckOutDays() throws InterruptedException{
         headerObjects= new HeaderObjects(driver);
         headerObjects.GoToHotels();
@@ -37,6 +37,31 @@ WishListPage wishListPage;
         hotelPage.clickOnSearchBtn();
         Assert.assertTrue(hotelPage.noHotelsFound(), "No hotels found, The checkout date is previous than checkin date.");
     }
+
+    /**
+     * Filter a hotel by property type.
+     */
+    @Test (enabled = false)
+    public void filterByProperty(){
+        headerObjects = new HeaderObjects(driver);
+        headerObjects.GoToHotels();
+        hotelPage = new HotelsPage(driver);
+        hotelPage.findByProperty("Villa");
+	    Assert.assertTrue(hotelPage.noHotelsFound(), "No hotels with Villa property were found.");
+    }
+
+    /**
+     * Filter hotels by selecting multiple property types.
+     */
+    @Test
+    public void filterByMultipleProperties(){
+        String[] properties = new String[]{"Apartment","Hotel","Residence","Time Share"};
+        headerObjects = new HeaderObjects(driver);
+        headerObjects.GoToHotels();
+        hotelPage = new HotelsPage(driver);
+        hotelPage.findByMultipleProperties(properties);
+        Assert.assertFalse(hotelPage.noHotelsFound(), "The system shows a list of hotels with the specified property types.");
+    }
   
 /**
  * The test case verifies that the user can add a hotel to the wishlist when is logged in.
@@ -44,7 +69,7 @@ WishListPage wishListPage;
  * @param password
  * @throws InterruptedException 
  */
-@Test(dataProvider = "loginAuthenticationWithOutURL", dataProviderClass= data_providers.LoginDataProvider.class, enabled=true)
+@Test(dataProvider = "loginAuthenticationWithOutURL", dataProviderClass= data_providers.LoginDataProvider.class, enabled=false)
 public void AddHotelToWishList(String email,String password) throws InterruptedException {
 	headerObjects= new HeaderObjects(driver);
 	headerObjects.DisplayMyAccountDropDown();

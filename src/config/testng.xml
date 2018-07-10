@@ -5,6 +5,7 @@
     <parameter name="baseUrl" value="https://www.phptravels.net"/>
     <test name="ChromeTest">
         <classes>
+            <!--<class name="tests.HotelTest"/>-->
             <class name="tests.FlightTest" />
         </classes>
     </test>
