@@ -1,5 +1,6 @@
 package pageobjects;
 
+import java.util.LinkedList;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,32 +22,41 @@ public class HotelsPage {
 	@FindBy(name = "checkout") WebElement checkOut;
 	@FindBy(xpath = "//form[@name='fCustomHotelSearch']//button[@type='submit']") WebElement hotelSearchBtn;
 	@FindBy(className = "itemscontainer") WebElement itemsContainer;
+	LinkedList<WebElement> hotelsList;
+	@FindBy(xpath="//div[@id='body-section']//tbody//tr[3]//td[1]") WebElement firstHotel;
 	
 	/**
 	 * Constructor method.
 	 * @param driver is the web driver.
 	 */
-	public  HotelsPage(WebDriver driver) {
-		this.driver = driver;
-		PageFactory.initElements(driver, this);
+	public  HotelsPage(WebDriver driverP) {
+		 driver= driverP;
+		 PageFactory.initElements(driver, this);
+		 hotelsList= new LinkedList<>();
+		 hotelsList.add(firstHotel);
+		 }
+  
+	/**
+	 * This method returns the title of the first hotel of the  list
+	 * @return
+	 */
+	public String GetTitleOfFirstHotel() {
+		String name= hotelsList.get(0).findElement(By.xpath("//h4[contains(@class, 'RTL go-text-right mt0 mb4 list_title')]")).getText();
+		return name;
 	}
-	
+  
+	/**
+	 * This method clicks on the add to wish list button 
+	 */
 	public void addHotelToWishList() {
-		addToWishList.click();
+	   hotelsList.get(0).findElement(By.xpath("//div[contains(@data-placement, 'left')]")).click();
 	}
-
+  
 	/**
 	 * Sets the check in date.
 	 * @param inDate is the check in date.
 	 */
 	public void setCheckInDate(String inDate){
-//		clickOnCheckIn();
-//		List<WebElement> monthDays = driver.findElements(By.xpath("//div[contains(@class,'datepicker')][1]/div[@class='datepicker-days']//td"));
-//		for (WebElement day : monthDays){
-//			if (day.getText().contains(selectedDay + "")){
-//				day.click();
-//			}
-//		}
 		checkIn.sendKeys(inDate);
 	}
 
@@ -81,5 +91,4 @@ public class HotelsPage {
 	private void clickOnCheckOut(){
 		checkOut.click();
 	}
-
 }
