@@ -41,13 +41,26 @@ WishListPage wishListPage;
     /**
      * Filter a hotel by property type.
      */
-    @Test (enabled = true)
+    @Test (enabled = false)
     public void filterByProperty(){
         headerObjects = new HeaderObjects(driver);
         headerObjects.GoToHotels();
         hotelPage = new HotelsPage(driver);
         hotelPage.findByProperty("Villa");
-	Assert.assertTrue(hotelPage.noHotelsFound(), "No hotels found, The checkout date is previous than checkin date.");
+	    Assert.assertTrue(hotelPage.noHotelsFound(), "No hotels with Villa property were found.");
+    }
+
+    /**
+     * Filter hotels by selecting multiple property types.
+     */
+    @Test
+    public void filterByMultipleProperties(){
+        String[] properties = new String[]{"Apartment","Hotel","Residence","Time Share"};
+        headerObjects = new HeaderObjects(driver);
+        headerObjects.GoToHotels();
+        hotelPage = new HotelsPage(driver);
+        hotelPage.findByMultipleProperties(properties);
+        Assert.assertFalse(hotelPage.noHotelsFound(), "The system shows a list of hotels with the specified property types.");
     }
   
 /**

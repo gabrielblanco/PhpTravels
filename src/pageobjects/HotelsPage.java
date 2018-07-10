@@ -28,7 +28,7 @@ public class HotelsPage {
 	
 	/**
 	 * Constructor method.
-	 * @param driver is the web driver.
+	 * @param driverP is the web driver.
 	 */
 	public  HotelsPage(WebDriver driverP) {
 		 driver= driverP;
@@ -60,6 +60,18 @@ public class HotelsPage {
 	public void findByProperty(String propertyType){
 		WebElement property = driver.findElement(By.xpath("//div[@id='collapse3']//input[@id='" + propertyType + "']/parent::div/ins"));
 		property.click();
+		searchFilterButton.click();
+	}
+
+	/**
+	 * Filter hotels by selecting multiple property types.
+	 * @param properties are the property types.
+	 */
+	public void findByMultipleProperties(String[] properties){
+		for (String property : properties){
+			WebElement element = driver.findElement(By.xpath("//div[@id='collapse3']//input[@id='" + property + "']/parent::div/ins"));
+			element.click();
+		}
 		searchFilterButton.click();
 	}
   
