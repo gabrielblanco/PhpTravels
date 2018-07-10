@@ -1,7 +1,6 @@
 package tests;
-import static org.testng.Assert.assertEquals;
+
 import static org.testng.Assert.assertTrue;
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -11,13 +10,6 @@ import pageobjects.LoginPage;
 import pageobjects.flights.FlightDetails;
 import pageobjects.flights.FlightInvoice;
 import pageobjects.flights.FlightPage;
-
-
-import pageobjects.HeaderObjects;
-import pageobjects.HotelsPage;
-import pageobjects.LoginPage;
-import pageobjects.WishListPage;
-
 
 public class FlightTest extends BaseTest{
 
