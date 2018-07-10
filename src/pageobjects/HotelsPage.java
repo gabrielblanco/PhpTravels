@@ -7,17 +7,27 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class HotelsPage {
+
+	/**
+	 * Web driver.
+	 */
 	WebDriver driver;
+
+	/**
+	 * Web element selectors.
+	 */
 	@FindBy(xpath="//div[@id='40']//a[@class='tooltip_flip tooltip-effect-1']") WebElement addToWishList;
 	@FindBy(name = "checkin") WebElement checkIn;
 	@FindBy(name = "checkout") WebElement checkOut;
+	@FindBy(xpath = "//form[@name='fCustomHotelSearch']//button[@type='submit']") WebElement hotelSearchBtn;
+	@FindBy(className = "itemscontainer") WebElement itemsContainer;
 	
 	/**
-	 * Constructor method
-	 * @param driverP
+	 * Constructor method.
+	 * @param driver is the web driver.
 	 */
-	public  HotelsPage(WebDriver driverP) {
-		driver= driverP;
+	public  HotelsPage(WebDriver driver) {
+		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -25,36 +35,49 @@ public class HotelsPage {
 		addToWishList.click();
 	}
 
-	public void selectCheckInDate(){
-		clickOnCheckIn();
-		WebElement checkInDate = driver.findElement(By.xpath("//div[@class='datepicker-days']//td[@class='day '][contains(text(),'14')]"));
-		checkInDate.click();
+	/**
+	 * Sets the check in date.
+	 * @param inDate is the check in date.
+	 */
+	public void setCheckInDate(String inDate){
+//		clickOnCheckIn();
+//		List<WebElement> monthDays = driver.findElements(By.xpath("//div[contains(@class,'datepicker')][1]/div[@class='datepicker-days']//td"));
+//		for (WebElement day : monthDays){
+//			if (day.getText().contains(selectedDay + "")){
+//				day.click();
+//			}
+//		}
+		checkIn.sendKeys(inDate);
 	}
 
-	public void selectCheckOutDate(){
-//		clickOnCheckOut();
-		WebElement datepicker = driver.findElement(By.xpath("//div[@class='datepicker-days']"));
-		if (datepicker.isDisplayed()){
-			System.out.println("Element already displayed.");
-			WebElement checkOutDate = driver.findElement(By.xpath("//div[@class='datepicker-days']//td[@class='day '][contains(text(),'16')]"));
-			checkOutDate.click();
-		} else {
-			System.out.println("Element not displayed jet.");
-		}
-
-		if (datepicker.isEnabled()){
-			System.out.println("Element Enable.");
-			WebElement checkOutDate = driver.findElement(By.xpath("//div[@class='datepicker-days']//td[@class='day '][contains(text(),'16')]"));
-			checkOutDate.click();
-		} else {
-			System.out.println("Element Disable.");
-		}
+	/**
+	 * Sets the check out date.
+	 * @param outDate is the check out date.
+	 */
+	public void setCheckOutDate(String outDate){
+		checkOut.sendKeys(outDate);
 	}
 
+	/**
+	 * Clicks on search hotel button.
+	 */
+	public void clickOnSearchBtn(){ hotelSearchBtn.click(); }
+
+	public boolean noHotelsFound() {
+		WebElement message = itemsContainer.findElement(By.tagName("h2"));
+		return message.isEnabled();
+	}
+
+	/**
+	 * Clicks on check in input text.
+	 */
 	private void clickOnCheckIn(){
 		checkIn.click();
 	}
 
+	/**
+	 * Clicks on check out input text.
+	 */
 	private void clickOnCheckOut(){
 		checkOut.click();
 	}

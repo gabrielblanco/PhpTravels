@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -49,9 +50,10 @@ public HotelsPage hotelPage;
         headerObjects= new HeaderObjects(driver);
         headerObjects.GoToHotels();
         hotelPage = new HotelsPage(driver);
-        hotelPage.selectCheckInDate();
-        Thread.sleep(3000);
-        hotelPage.selectCheckOutDate();
+        hotelPage.setCheckInDate("16/07/2018");
+        hotelPage.setCheckOutDate("05/07/2018");
+        hotelPage.clickOnSearchBtn();
+        Assert.assertTrue(hotelPage.noHotelsFound(), "No hotels found, The checkout date is previous than checkin date.");
     }
 
     /**
