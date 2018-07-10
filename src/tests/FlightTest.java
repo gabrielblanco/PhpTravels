@@ -1,5 +1,7 @@
 package tests;
-
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -10,11 +12,19 @@ import pageobjects.flights.FlightDetails;
 import pageobjects.flights.FlightInvoice;
 import pageobjects.flights.FlightPage;
 
+
+import pageobjects.FlightsPage;
+import pageobjects.HeaderObjects;
+import pageobjects.HotelsPage;
+import pageobjects.LoginPage;
+import pageobjects.WishListPage;
+
+
 public class FlightTest extends BaseTest{
 
     /**
      * Instances.
-     */
+     */  
     LoginPage loginPage;
     FlightPage flightPage;
     FlightDetails flightDetails;
@@ -50,7 +60,21 @@ public class FlightTest extends BaseTest{
         Thread.sleep(3000);
         Assert.assertTrue(flightInvoice.bookingConfirmation(), "Your booking status is reserved.");
     }
-
+    /**
+     * Verify that the system displays the details oThis method clicks the details button of the first flight in the listf a flight when more details button is clicked.
+     * @throws InterruptedException 
+     */
+    @Test
+    public void displayDetails() throws InterruptedException {
+    	headerObjects = new HeaderObjects(driver);
+    	headerObjects.GoToFlights();
+    	flightsPage=new FlightsPage(driver);
+    	flightsPage.ClickOnDetails();
+    	Thread.sleep(3000);
+    	assertTrue(flightsPage.descriptionIsDisplayed());
+    }
+        
+  
     /**
      * Tear down the web driver.
      */
@@ -58,5 +82,4 @@ public class FlightTest extends BaseTest{
     public void CloseWindow() {
         //driver.close();
     }
-
 }

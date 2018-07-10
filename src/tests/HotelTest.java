@@ -22,8 +22,8 @@ WishListPage wishListPage;
     @BeforeClass
     public void setUp() {
 	driver=getDriver();
-}
-
+    }
+  
   /**
   * This test case verifies that a user can't select a checkout date previous that the reservation date.
   */
