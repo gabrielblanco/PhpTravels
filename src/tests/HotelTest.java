@@ -3,12 +3,11 @@ package tests;
 import static org.testng.Assert.assertEquals;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import pageobjects.HeaderObjects;
 import pageobjects.HotelsPage;
 import pageobjects.LoginPage;
@@ -21,10 +20,24 @@ LoginPage loginPage;
 HotelsPage hotelPage;
 WishListPage wishListPage;
 
-@BeforeClass
-public void setUp() {
+    @BeforeClass
+    public void setUp() {
 	driver=getDriver();
 }
+  /**
+  * This test case verifies that a user can't select a checkout date previous that the reservation date.
+  */
+    @Test
+    public void validateCheckIn_CheckOutDays() throws InterruptedException{
+        headerObjects= new HeaderObjects(driver);
+        headerObjects.GoToHotels();
+        hotelPage = new HotelsPage(driver);
+        hotelPage.setCheckInDate("16/07/2018");
+        hotelPage.setCheckOutDate("05/07/2018");
+        hotelPage.clickOnSearchBtn();
+        Assert.assertTrue(hotelPage.noHotelsFound(), "No hotels found, The checkout date is previous than checkin date.");
+    }
+  
 /**
  * The test case verifies that the user can add a hotel to the wishlist when is logged in.
  * @param email
@@ -58,12 +71,12 @@ public void AddHotelToWishList(String email,String password) throws InterruptedE
 	System.out.println(titleWish);
 	assertEquals(titleWish, titleHotelAdded,"Los hoteles no coinciden, Hotel no agregado.");
 }
+  
 /**
  * This test close the browser window
  */
 @AfterTest
 public void CloseWindow() {
-	//driver.close();
+	driver.close();
 }
-
 }
