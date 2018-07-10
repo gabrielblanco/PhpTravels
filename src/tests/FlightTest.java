@@ -13,7 +13,6 @@ import pageobjects.flights.FlightInvoice;
 import pageobjects.flights.FlightPage;
 
 
-import pageobjects.FlightsPage;
 import pageobjects.HeaderObjects;
 import pageobjects.HotelsPage;
 import pageobjects.LoginPage;
@@ -42,7 +41,7 @@ public class FlightTest extends BaseTest{
     /**
      * Books a new flight for a user.
      */
-    @Test(dataProvider = "validBookingData", dataProviderClass = data_providers.FlightDataProvider.class)
+    @Test(dataProvider = "validBookingData", dataProviderClass = data_providers.FlightDataProvider.class, enabled=true)
     public void bookAFlight(String uName, String uLastName, String uEmail, String uEmailConfirmation) throws InterruptedException {
         loginPage = new LoginPage(driver);
         headerObjects = new HeaderObjects(driver);
@@ -64,14 +63,14 @@ public class FlightTest extends BaseTest{
      * Verify that the system displays the details oThis method clicks the details button of the first flight in the listf a flight when more details button is clicked.
      * @throws InterruptedException 
      */
-    @Test
+    @Test( enabled=false)
     public void displayDetails() throws InterruptedException {
     	headerObjects = new HeaderObjects(driver);
     	headerObjects.GoToFlights();
-    	flightsPage=new FlightsPage(driver);
-    	flightsPage.ClickOnDetails();
+    	flightPage=new FlightPage(driver);
+    	flightPage.ClickOnDetails();
     	Thread.sleep(3000);
-    	assertTrue(flightsPage.descriptionIsDisplayed());
+    	assertTrue(flightPage.descriptionIsDisplayed());
     }
         
   
@@ -80,6 +79,6 @@ public class FlightTest extends BaseTest{
      */
     @AfterTest
     public void CloseWindow() {
-        //driver.close();
+        driver.close();
     }
 }
