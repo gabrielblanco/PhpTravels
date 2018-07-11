@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="19953" started-at="2018-07-11T19:41:57Z" finished-at="2018-07-11T19:42:17Z">
+  <suite name="Suite" duration-ms="27726" started-at="2018-07-11T22:20:35Z" finished-at="2018-07-11T22:21:03Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="19953" started-at="2018-07-11T19:41:57Z" finished-at="2018-07-11T19:42:17Z">
-      <class name="tests.CarTest">
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:tests.CarTest@475530b9]" name="initializeTestBaseSetup" is-config="true" duration-ms="12285" started-at="2018-07-11T19:41:57Z" finished-at="2018-07-11T19:42:09Z">
+    <test name="ChromeTest" duration-ms="27726" started-at="2018-07-11T22:20:35Z" finished-at="2018-07-11T22:21:03Z">
+      <class name="tests.VisaTest">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:tests.VisaTest@1d057a39]" name="initializeTestBaseSetup" is-config="true" duration-ms="15000" started-at="2018-07-11T22:20:35Z" finished-at="2018-07-11T22:20:50Z">
           <params>
             <param index="0">
               <value>
@@ -23,19 +23,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.CarTest@475530b9]" name="setUp" is-config="true" duration-ms="1" started-at="2018-07-11T19:42:09Z" finished-at="2018-07-11T19:42:09Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.VisaTest@1d057a39]" name="setUp" is-config="true" duration-ms="1" started-at="2018-07-11T22:20:50Z" finished-at="2018-07-11T22:20:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="filterByStarGrade()[pri:0, instance:tests.CarTest@475530b9]" name="filterByStarGrade" duration-ms="7650" started-at="2018-07-11T19:42:09Z" finished-at="2018-07-11T19:42:17Z">
+        <test-method status="PASS" signature="removeApplicant()[pri:0, instance:tests.VisaTest@1d057a39]" name="removeApplicant" duration-ms="12711" started-at="2018-07-11T22:20:50Z" finished-at="2018-07-11T22:21:03Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- filterByStarGrade -->
-        <test-method status="PASS" signature="CloseWindow()[pri:0, instance:tests.CarTest@475530b9]" name="CloseWindow" is-config="true" duration-ms="0" started-at="2018-07-11T19:42:17Z" finished-at="2018-07-11T19:42:17Z">
+        </test-method> <!-- removeApplicant -->
+        <test-method status="PASS" signature="CloseWindow()[pri:0, instance:tests.VisaTest@1d057a39]" name="CloseWindow" is-config="true" duration-ms="0" started-at="2018-07-11T22:21:03Z" finished-at="2018-07-11T22:21:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseWindow -->
-      </class> <!-- tests.CarTest -->
+      </class> <!-- tests.VisaTest -->
     </test> <!-- ChromeTest -->
   </suite> <!-- Suite -->
 </testng-results>

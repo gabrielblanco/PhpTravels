@@ -26,6 +26,7 @@ public class BasicInformation {
     @FindBy(xpath = "//input[@data-ivisa-name='address']") WebElement homeAddress;
     @FindBy(xpath = "//select[@data-ivisa-name='home_country']") WebElement homeCountry;
     @FindBy(xpath = "//select[@data-ivisa-name='traveling_by']") WebElement travelingBy;
+    @FindBy(xpath="//div[@class='btn btn-sm btn-primary']") WebElement btnAddApplicant;
 
     /**
      * Web element selectors of Applicant #1
@@ -75,7 +76,28 @@ public class BasicInformation {
         selectHomeCountry(uHomeCountry);
         selectTravelingBy(uTravelBy);
     }
-
+    
+    /**
+     * This method clicks on the add applicant button
+     */
+    public void addAppliccant() {
+    	btnAddApplicant.click();
+    }
+    
+    /**
+     * This method remove the first applicant of the list
+     */
+    public void removeAppicant() {
+    	WebElement btnRemove = driver.findElement(By.xpath("//div[@class='container ivisa-before-review']//section[2]//div[1]//div[1]"));
+    	btnRemove.click();
+    }
+    
+    /**
+     * This method verifies if
+     */
+    public void isApplicantRemove() {
+    	
+    }
     /**
      * Fills the applicant #1 information.
      * @param uName is the applicant name.

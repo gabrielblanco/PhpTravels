@@ -22,7 +22,7 @@ public class VisaTest extends BaseTest {
         driver=getDriver();
     }
 
-    @Test(dataProvider = "basicInformatinData", dataProviderClass = data_providers.VisaDataProvider.class)
+    @Test(dataProvider = "basicInformatinData", dataProviderClass = data_providers.VisaDataProvider.class, enabled= false)
     public void payUsingPaypal(String uEmail, String uArrivalDate, String uPhoneCode, String uPhoneNumber,
                              String uHomeAddress, String uHomeCountry, String uTravelBy, String uName,
                              String uLastName, String uNationality, String uBirthday, String uGender,
@@ -41,6 +41,16 @@ public class VisaTest extends BaseTest {
             e.printStackTrace();
         }
         visa.payViaPaypal();
+    }
+    @Test
+    public void removeApplicant() throws InterruptedException {
+    	headerObjects= new HeaderObjects(driver);
+    	headerObjects.GoToVisa();
+    	Thread.sleep(3000);
+    	visa= new Visa(driver);
+    	visa.addApplicant();
+    	Thread.sleep(3000);
+    	visa.removeApplicant();
     }
 
     /**
