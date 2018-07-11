@@ -6,7 +6,8 @@
     <test name="ChromeTest">
         <classes>
             <!--<class name="tests.HotelTest"/>-->
-            <class name="tests.FlightTest" />
+            <!--<class name="tests.FlightTest" />-->
+        	<class name="tests.TourTest" />
         </classes>
     </test>
 </suite>
