@@ -36,17 +36,34 @@ public class CarsPage {
         viewMapBtn.click();
     }
 
-    public boolean StarGradeCarIsDisplayed() {
-    	WebElement lastStar= firstCar.findElement(By.xpath("(//span[contains(@class,'go-right mob-fs10')]//i)[5]"));
-    	System.out.println(lastStar.getAttribute("class").toString());
-    	try {
-        	return lastStar.getAttribute("class").contains("star fa fa-star");
-    	}catch (Exception e) {
-    		System.out.println("Element not found or no contains the class.");
+    /**
+     * This method verifies if the first element of the list have 
+     * @return
+     */
+    public boolean ValidateStarsFirstElement(int stars) {
+    	if(stars==GetStarGradeFirstElement()) {
+    		return true;
+    	}else {
     		return false;
     	}
-    	
     }
+    
+    //This method counts the number of stars of the first element of the list
+    public int GetStarGradeFirstElement() {
+    	int numberOfStars=0;
+    	WebElement star= firstCar.findElement(By.xpath("(//span[contains(@class,'go-right mob-fs10')]//i)[1]"));
+    	for (int i = 1; i <6; i++) {
+    		if(star.getAttribute("class").equals("star fa fa-star")) {
+        		numberOfStars= numberOfStars+1;
+        		System.out.println("number of stars  + 1");
+        	}
+        	star= firstCar.findElement(By.xpath("(//span[contains(@class,'go-right mob-fs10')]//i)["+(i+1)+"]"));
+		}
+    	System.out.println("number of stars: "+ numberOfStars);
+    	return numberOfStars;
+    }
+    
+    
     /**
      * Verifies is the container has a map inside.
      */
@@ -65,7 +82,7 @@ public class CarsPage {
 	 * Filter a car by selecting star grade.
 	 * @param starGrade is the property type
 	 */
-	public void findByStarGrade(String starGrade){
+	public void findByStarGrade(int starGrade){
 		WebElement grade = driver.findElement(By.xpath("(//input[@id='"+starGrade+"'])[1]/parent::div/ins"));
 		grade.click();
 		clickSearchFilterButton();

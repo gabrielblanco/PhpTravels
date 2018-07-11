@@ -45,13 +45,13 @@ public class CarTest extends BaseTest {
      */
     @Test
     public void filterByStarGrade() throws InterruptedException {
-    	 headerObjects = new HeaderObjects(driver);
+    	int stars=5;
+    	headerObjects = new HeaderObjects(driver);
          headerObjects.GoToCars();
          Thread.sleep(3000);
          carsPage=new CarsPage(driver);
-         carsPage.findByStarGrade("5");
-         //Thread.sleep(3000);
-         assertTrue(carsPage.StarGradeCarIsDisplayed());
+         carsPage.findByStarGrade(stars);
+         assertTrue(carsPage.ValidateStarsFirstElement(stars));
     }
 
     /**
