@@ -18,7 +18,7 @@ public class CarsPage {
      */
     @FindBy(xpath = "//a[@href='#collapseMap']") WebElement viewMapBtn;
     @FindBy(xpath = "//div[@id='collapseMap'][1]//div[@id='map']") WebElement mapContainer;
-
+    @FindBy(id="searchform") WebElement searchFilterButton;
     /**
      * Constructor method.
      * @param driver is the web driver.
@@ -48,4 +48,21 @@ public class CarsPage {
             return false;
         }
     }
+    
+    /**
+	 * Filter a car by selecting star grade.
+	 * @param propertyType is the property type
+	 */
+	public void findByStarGrade(String propertyType){
+		WebElement property = driver.findElement(By.xpath("(//input[@id='"+propertyType+"'])[1]/parent::div/ins"));
+		property.click();
+		clickSearchFilterButton();
+	}
+	
+	/**
+	 * This method clicks on the search button 
+	 */
+	public void clickSearchFilterButton() {
+		searchFilterButton.click();
+	}
 }
