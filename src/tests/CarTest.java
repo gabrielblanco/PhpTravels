@@ -1,5 +1,7 @@
 package tests;
 
+import static org.testng.Assert.assertTrue;
+
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
@@ -37,6 +39,10 @@ public class CarTest extends BaseTest {
         Assert.assertTrue(carsPage.containsMap(),"The Map Container does not have any map inside.");
     }
     
+    /**
+     * The test case verifies that the user can filter a car by star grade.
+     * @throws InterruptedException
+     */
     @Test
     public void filterByStarGrade() throws InterruptedException {
     	 headerObjects = new HeaderObjects(driver);
@@ -44,6 +50,8 @@ public class CarTest extends BaseTest {
          Thread.sleep(3000);
          carsPage=new CarsPage(driver);
          carsPage.findByStarGrade("5");
+         //Thread.sleep(3000);
+         assertTrue(carsPage.StarGradeCarIsDisplayed());
     }
 
     /**

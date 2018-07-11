@@ -19,6 +19,7 @@ public class CarsPage {
     @FindBy(xpath = "//a[@href='#collapseMap']") WebElement viewMapBtn;
     @FindBy(xpath = "//div[@id='collapseMap'][1]//div[@id='map']") WebElement mapContainer;
     @FindBy(id="searchform") WebElement searchFilterButton;
+    @FindBy(xpath="(//table[@class='bgwhite table table-striped']//td)[1]") WebElement firstCar;
     /**
      * Constructor method.
      * @param driver is the web driver.
@@ -35,6 +36,17 @@ public class CarsPage {
         viewMapBtn.click();
     }
 
+    public boolean StarGradeCarIsDisplayed() {
+    	WebElement lastStar= firstCar.findElement(By.xpath("(//span[contains(@class,'go-right mob-fs10')]//i)[5]"));
+    	System.out.println(lastStar.getAttribute("class").toString());
+    	try {
+        	return lastStar.getAttribute("class").contains("star fa fa-star");
+    	}catch (Exception e) {
+    		System.out.println("Element not found or no contains the class.");
+    		return false;
+    	}
+    	
+    }
     /**
      * Verifies is the container has a map inside.
      */
@@ -51,11 +63,11 @@ public class CarsPage {
     
     /**
 	 * Filter a car by selecting star grade.
-	 * @param propertyType is the property type
+	 * @param starGrade is the property type
 	 */
-	public void findByStarGrade(String propertyType){
-		WebElement property = driver.findElement(By.xpath("(//input[@id='"+propertyType+"'])[1]/parent::div/ins"));
-		property.click();
+	public void findByStarGrade(String starGrade){
+		WebElement grade = driver.findElement(By.xpath("(//input[@id='"+starGrade+"'])[1]/parent::div/ins"));
+		grade.click();
 		clickSearchFilterButton();
 	}
 	
