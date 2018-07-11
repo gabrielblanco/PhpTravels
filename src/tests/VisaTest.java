@@ -23,7 +23,7 @@ public class VisaTest extends BaseTest {
     }
 
     @Test(dataProvider = "basicInformatinData", dataProviderClass = data_providers.VisaDataProvider.class)
-    public void payViaPaypal(String uEmail, String uArrivalDate, String uPhoneCode, String uPhoneNumber,
+    public void payUsingPaypal(String uEmail, String uArrivalDate, String uPhoneCode, String uPhoneNumber,
                              String uHomeAddress, String uHomeCountry, String uTravelBy, String uName,
                              String uLastName, String uNationality, String uBirthday, String uGender,
                              String uPassportNumber, String uPassportIssued, String uPassportExpiration,
@@ -35,6 +35,12 @@ public class VisaTest extends BaseTest {
         visa.fillBasicInformation(uEmail, uArrivalDate, uPhoneCode, uPhoneNumber, uHomeAddress,
                 uHomeCountry, uTravelBy, uName, uLastName, uNationality, uBirthday, uGender, uPassportNumber,
                 uPassportIssued, uPassportExpiration, uIdentificationNumber, uVisaType, uCurrency);
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        visa.payViaPaypal();
     }
 
     /**
