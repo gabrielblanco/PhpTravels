@@ -38,6 +38,13 @@ public class BasicInformation {
     @FindBy(xpath = "//section[contains(@class,'ivisa-applicant-fields')][2]//input[@data-ivisa-name='passport_num']") WebElement passportNumber;
     @FindBy(xpath = "//section[contains(@class,'ivisa-applicant-fields')][2]//input[@data-ivisa-name='passport_issued_date']") WebElement passportIssued;
     @FindBy(xpath = "//section[contains(@class,'ivisa-applicant-fields')][2]//input[@data-ivisa-name='passport_expiration_date']") WebElement passportExpiration;
+    @FindBy(xpath = "//section[contains(@class,'ivisa-applicant-fields')][2]//input[@data-ivisa-name='national_identity_number']") WebElement nationalIdentificationNumber;
+
+    /**
+     * Web element selectors of BasicInfo
+     */
+    @FindBy(xpath = "//select[@data-ivisa-name='currency']") WebElement currency;
+    @FindBy(xpath = "//button[contains(@class,'ivisa-submit-step1-button')]") WebElement nextBtn;
 
     /**
      * Constructor method.
@@ -81,7 +88,8 @@ public class BasicInformation {
      * @param uPassportExpiration is the applicant passport expiration date.
      */
     public void fillApplicantInfo(String uName, String uLastName, String uNationality, String uBirthday,
-                                  String uGender, String uPassportNumber, String uPassportIssued, String uPassportExpiration){
+                                  String uGender, String uPassportNumber, String uPassportIssued, String uPassportExpiration,
+                                  String uIdentificationNumber){
         typeUserName(uName);
         typeUserLastName(uLastName);
         selectNationality(uNationality);
@@ -94,6 +102,13 @@ public class BasicInformation {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        typeUserIdentificationNumber(uIdentificationNumber);
+    }
+
+    public void finishVisaCost(String uVisaType, String uCurrency){
+        selectVisaType(uVisaType);
+        selectCurrency(uCurrency);
+        clickOnNextButton();
     }
 
     /**
@@ -260,7 +275,41 @@ public class BasicInformation {
         Thread.sleep(2000);
         passportExpiration.click();
         // 2030-10-11
-//        driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
         modalHandler("Passport Expiration", "10 - October", "11", "2030");
+    }
+
+    /**
+     * Types the user identification number.
+     * @param uIdentificationNumber is the user identification number.
+     */
+    private void typeUserIdentificationNumber(String uIdentificationNumber){
+        nationalIdentificationNumber.clear();
+        nationalIdentificationNumber.sendKeys(uIdentificationNumber);
+    }
+
+    /**
+     * Select Canada visa type.
+     * @param uVisaType is the selected visa type.
+     */
+    private void selectVisaType(String uVisaType){
+        WebElement visaType = driver.findElement(By.xpath("//section[contains(@class,'ivisa-applicant-fields')][2]//select[@data-ivisa-name='visa_type']"));
+        Select drpType = new Select(visaType);
+        drpType.selectByVisibleText(uVisaType);
+    }
+
+    /**
+     * Select the currency option.
+     * @param uCurrency is the user option for currency.
+     */
+    private void selectCurrency(String uCurrency){
+        Select drpCurrency = new Select(currency);
+        drpCurrency.selectByVisibleText(uCurrency);
+    }
+
+    /**
+     * Clicks on next button.
+     */
+    private void clickOnNextButton(){
+        nextBtn.click();
     }
 }

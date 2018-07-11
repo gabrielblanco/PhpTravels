@@ -26,14 +26,15 @@ public class VisaTest extends BaseTest {
     public void payViaPaypal(String uEmail, String uArrivalDate, String uPhoneCode, String uPhoneNumber,
                              String uHomeAddress, String uHomeCountry, String uTravelBy, String uName,
                              String uLastName, String uNationality, String uBirthday, String uGender,
-                             String uPassportNumber, String uPassportIssued, String uPassportExpiration){
+                             String uPassportNumber, String uPassportIssued, String uPassportExpiration,
+                             String uIdentificationNumber, String uVisaType, String uCurrency){
         headerObjects = new HeaderObjects(driver);
         visa = new Visa(driver);
 
         headerObjects.GoToVisa();
         visa.fillBasicInformation(uEmail, uArrivalDate, uPhoneCode, uPhoneNumber, uHomeAddress,
                 uHomeCountry, uTravelBy, uName, uLastName, uNationality, uBirthday, uGender, uPassportNumber,
-                uPassportIssued, uPassportExpiration);
+                uPassportIssued, uPassportExpiration, uIdentificationNumber, uVisaType, uCurrency);
     }
 
     /**
