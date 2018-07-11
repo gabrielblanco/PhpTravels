@@ -7,6 +7,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.concurrent.TimeUnit;
+
 public class BasicInformation {
 
     /**
@@ -87,7 +89,11 @@ public class BasicInformation {
         selectGender(uGender);
         typePassportNumber(uPassportNumber);
         typePassportIssuedDate(uPassportIssued);
-        typePassportExpirationDate(uPassportExpiration);
+        try {
+            typePassportExpirationDate(uPassportExpiration);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -213,6 +219,7 @@ public class BasicInformation {
     private void typeBirthday(String uBirthday){
         birthday.click();
         // 1995-07-06
+        driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
         modalHandler("Birthday", "7 - July", "6", "1995");
     }
 
@@ -239,9 +246,9 @@ public class BasicInformation {
      * @param uPassportIssued is the user passport issued.
      */
     private void typePassportIssuedDate(String uPassportIssued){
-//        passportIssued.sendKeys(uPassportIssued);
         passportIssued.click();
         // 2008-06-10
+        driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
         modalHandler("Passport Issued", "6 - June", "10", "2008");
     }
 
@@ -249,9 +256,11 @@ public class BasicInformation {
      * Types the user passport expiration date.
      * @param uPassportExpiration is the user passport expiration date.
      */
-    private void typePassportExpirationDate(String uPassportExpiration){
-//        passportExpiration.sendKeys(uPassportExpiration);
+    private void typePassportExpirationDate(String uPassportExpiration) throws InterruptedException {
+        Thread.sleep(2000);
+        passportExpiration.click();
         // 2030-10-11
+//        driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
         modalHandler("Passport Expiration", "10 - October", "11", "2030");
     }
 }
