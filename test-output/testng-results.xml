@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="1" total="2" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="27166" started-at="2018-07-11T14:23:40Z" finished-at="2018-07-11T14:24:08Z">
+  <suite name="Suite" duration-ms="19953" started-at="2018-07-11T19:41:57Z" finished-at="2018-07-11T19:42:17Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="27166" started-at="2018-07-11T14:23:40Z" finished-at="2018-07-11T14:24:08Z">
-      <class name="tests.TourTest">
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:tests.TourTest@475530b9]" name="initializeTestBaseSetup" is-config="true" duration-ms="17570" started-at="2018-07-11T14:23:40Z" finished-at="2018-07-11T14:23:58Z">
+    <test name="ChromeTest" duration-ms="19953" started-at="2018-07-11T19:41:57Z" finished-at="2018-07-11T19:42:17Z">
+      <class name="tests.CarTest">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:tests.CarTest@475530b9]" name="initializeTestBaseSetup" is-config="true" duration-ms="12285" started-at="2018-07-11T19:41:57Z" finished-at="2018-07-11T19:42:09Z">
           <params>
             <param index="0">
               <value>
@@ -23,19 +23,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.TourTest@475530b9]" name="setUp" is-config="true" duration-ms="1" started-at="2018-07-11T14:23:58Z" finished-at="2018-07-11T14:23:58Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.CarTest@475530b9]" name="setUp" is-config="true" duration-ms="1" started-at="2018-07-11T19:42:09Z" finished-at="2018-07-11T19:42:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="alertIsDisplayed()[pri:0, instance:tests.TourTest@475530b9]" name="alertIsDisplayed" duration-ms="9573" started-at="2018-07-11T14:23:58Z" finished-at="2018-07-11T14:24:08Z">
+        <test-method status="PASS" signature="filterByStarGrade()[pri:0, instance:tests.CarTest@475530b9]" name="filterByStarGrade" duration-ms="7650" started-at="2018-07-11T19:42:09Z" finished-at="2018-07-11T19:42:17Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- alertIsDisplayed -->
-        <test-method status="PASS" signature="CloseWindow()[pri:0, instance:tests.TourTest@475530b9]" name="CloseWindow" is-config="true" duration-ms="0" started-at="2018-07-11T14:24:08Z" finished-at="2018-07-11T14:24:08Z">
+        </test-method> <!-- filterByStarGrade -->
+        <test-method status="PASS" signature="CloseWindow()[pri:0, instance:tests.CarTest@475530b9]" name="CloseWindow" is-config="true" duration-ms="0" started-at="2018-07-11T19:42:17Z" finished-at="2018-07-11T19:42:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseWindow -->
-      </class> <!-- tests.TourTest -->
+      </class> <!-- tests.CarTest -->
     </test> <!-- ChromeTest -->
   </suite> <!-- Suite -->
 </testng-results>
