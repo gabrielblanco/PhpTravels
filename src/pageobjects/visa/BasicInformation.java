@@ -154,6 +154,32 @@ public class BasicInformation {
     }
 
     /**
+     * Handler for date modals.
+     * @param title is the title of the modal.
+     * @param month is the month to select.
+     * @param day is the day to select.
+     * @param year is the year to select.
+     */
+    private void modalHandler(String title, String month, String day, String year){
+//        WebElement modal = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]"));
+        WebElement modalMonth = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]/parent::div/parent::div//select[@id='dp_month']"));
+        WebElement modalDay = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]/parent::div/parent::div//select[@id='dp_day']"));
+        WebElement modalYear = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]/parent::div/parent::div//select[@id='dp_year']"));
+        WebElement btnSave = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]/parent::div/parent::div//button[@id='dp_save']"));
+
+        Select drpMonth = new Select(modalMonth);
+        drpMonth.selectByVisibleText(month);
+
+        Select drpDay = new Select(modalDay);
+        drpDay.selectByVisibleText(day);
+
+        Select drpYear = new Select(modalYear);
+        drpYear.selectByVisibleText(year);
+
+        btnSave.click();
+    }
+
+    /**
      * Types the applicant user name.
      * @param uName is the applicant user name.
      */
@@ -185,7 +211,9 @@ public class BasicInformation {
      * @param uBirthday is the user birthday.
      */
     private void typeBirthday(String uBirthday){
-        birthday.sendKeys(uBirthday);
+        birthday.click();
+        // 1995-07-06
+        modalHandler("Birthday", "7 - July", "6", "1995");
     }
 
     /**
@@ -211,7 +239,10 @@ public class BasicInformation {
      * @param uPassportIssued is the user passport issued.
      */
     private void typePassportIssuedDate(String uPassportIssued){
-        passportIssued.sendKeys(uPassportIssued);
+//        passportIssued.sendKeys(uPassportIssued);
+        passportIssued.click();
+        // 2008-06-10
+        modalHandler("Passport Issued", "6 - June", "10", "2008");
     }
 
     /**
@@ -219,6 +250,8 @@ public class BasicInformation {
      * @param uPassportExpiration is the user passport expiration date.
      */
     private void typePassportExpirationDate(String uPassportExpiration){
-        passportExpiration.sendKeys(uPassportExpiration);
+//        passportExpiration.sendKeys(uPassportExpiration);
+        // 2030-10-11
+        modalHandler("Passport Expiration", "10 - October", "11", "2030");
     }
 }
