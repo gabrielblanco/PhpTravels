@@ -19,7 +19,7 @@ public class TourTest extends BaseTest {
 	  }
 	  
 	  /**
-	   * Verify that the system displays an alert when user tries to add a tour to the wish list and isn’t  logged.
+	   * Verify that the system displays an alert when user tries to add a tour to the wish list and is not logged.
 	   * @throws InterruptedException
 	   */
 	  @Test
