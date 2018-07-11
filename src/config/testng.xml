@@ -7,8 +7,9 @@
         <classes>
             <!--<class name="tests.HotelTest"/>-->
             <!--<class name="tests.FlightTest"/>-->
-            <class name="tests.CarTest"/>
-        	<class name="tests.TourTest" />
+            <!--<class name="tests.CarTest"/>-->
+        	<!--<class name="tests.TourTest" />-->
+            <class name="tests.VisaTest"/>
         </classes>
     </test>
 </suite>
