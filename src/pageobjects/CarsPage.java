@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -16,6 +17,7 @@ public class CarsPage {
      * Web element selectors.
      */
     @FindBy(xpath = "//a[@href='#collapseMap']") WebElement viewMapBtn;
+    @FindBy(xpath = "//div[@id='collapseMap'][1]//div[@id='map']") WebElement mapContainer;
 
     /**
      * Constructor method.
@@ -31,5 +33,19 @@ public class CarsPage {
      */
     public void clicOnViewMapBtn(){
         viewMapBtn.click();
+    }
+
+    /**
+     * Verifies is the container has a map inside.
+     */
+    public boolean containsMap(){
+        try {
+            WebElement map = mapContainer.findElement(By.xpath("//iframe"));
+            System.out.println(map.getLocation());
+            return true;
+        } catch (Exception e) {
+            System.out.println("The Map Container does not have any map inside.");
+            return false;
+        }
     }
 }
