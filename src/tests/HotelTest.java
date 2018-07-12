@@ -53,7 +53,7 @@ WishListPage wishListPage;
     /**
      * Filter hotels by selecting multiple property types.
      */
-    @Test
+    @Test(enabled=false)
     public void filterByMultipleProperties(){
         String[] properties = new String[]{"Apartment","Hotel","Residence","Time Share"};
         headerObjects = new HeaderObjects(driver);
@@ -69,7 +69,7 @@ WishListPage wishListPage;
  * @param password
  * @throws InterruptedException 
  */
-@Test(dataProvider = "loginAuthenticationWithOutURL", dataProviderClass= data_providers.LoginDataProvider.class, enabled=false)
+@Test(dataProvider = "loginAuthenticationWithOutURL", dataProviderClass= data_providers.LoginDataProvider.class)
 public void AddHotelToWishList(String email,String password) throws InterruptedException {
 	headerObjects= new HeaderObjects(driver);
 	headerObjects.DisplayMyAccountDropDown();
@@ -84,7 +84,6 @@ public void AddHotelToWishList(String email,String password) throws InterruptedE
 	Thread.sleep(4000);
 	hotelPage.addHotelToWishList();
 	String titleHotelAdded=hotelPage.GetTitleOfFirstHotel();
-	System.out.println(titleHotelAdded);
 	headerObjects.DisplayMyAccountDropDown();
 	Thread.sleep(3000);
 	headerObjects.SelectAccountItem();
@@ -93,8 +92,7 @@ public void AddHotelToWishList(String email,String password) throws InterruptedE
 	wishListPage.GoToWishList();
 	Thread.sleep(2000);
 	String titleWish=wishListPage.GetTitleOfFirstWish();
-	System.out.println(titleWish);
-	assertEquals(titleWish, titleHotelAdded,"Los hoteles no coinciden, Hotel no agregado.");
+	assertEquals(titleWish, titleHotelAdded,"Los hoteles no coinciden.");
 }
   
 /**
@@ -102,6 +100,6 @@ public void AddHotelToWishList(String email,String password) throws InterruptedE
  */
 @AfterTest
 public void CloseWindow() {
-	driver.close();
+	//driver.close();
 }
 }

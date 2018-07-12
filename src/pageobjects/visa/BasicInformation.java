@@ -5,9 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.concurrent.TimeUnit;
 
 public class BasicInformation {
@@ -88,7 +86,7 @@ public class BasicInformation {
     }
     
     /**
-     * This method clicks on the add applicant button
+     * This method adds a new applicant 
      */
     public void addAppliccant() {
     	btnAddApplicant.click();
@@ -125,8 +123,8 @@ public class BasicInformation {
         typePassportIssuedDate(uPassportIssued);
         try {
             typePassportExpirationDate(uPassportExpiration);
-        } catch (Exception e) {
-            System.out.println(e.toString());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
         typeUserIdentificationNumber(uIdentificationNumber);
     }
