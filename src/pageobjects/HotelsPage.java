@@ -32,7 +32,7 @@ public class HotelsPage {
 	public  HotelsPage(WebDriver driverP) {
 		 driver= driverP;
 		 PageFactory.initElements(driver, this);
-		 }
+	 }
   
 	/**
 	 * This method returns the title of the first hotel of the  list
