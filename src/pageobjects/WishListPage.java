@@ -30,7 +30,6 @@ public class WishListPage {
 	 * @return
 	 */
 	public String GetTitleOfFirstWish() {
-			return firstWish.findElement(By.xpath("(//div[@class='panel-body']//b)[1]")).getText();
-	
+		return firstWish.findElement(By.xpath("(//div[@class='panel-body']//b)[1]")).getText();
 	}
 }
