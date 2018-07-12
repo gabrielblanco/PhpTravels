@@ -59,11 +59,9 @@ public class CarsPage {
     	for (int i = 1; i <6; i++) {
     		if(star.getAttribute("class").equals("star fa fa-star")) {
         		numberOfStars= numberOfStars+1;
-        		System.out.println("number of stars  + 1");
         	}
         	star= firstCar.findElement(By.xpath("(//span[contains(@class,'go-right mob-fs10')]//i)["+(i+1)+"]"));
 		}
-    	System.out.println("number of stars: "+ numberOfStars);
     	return numberOfStars;
     }
     
