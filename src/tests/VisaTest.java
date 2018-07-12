@@ -37,8 +37,8 @@ public class VisaTest extends BaseTest {
         visa.fillBasicInformation(uEmail, uArrivalDate, uPhoneCode, uPhoneNumber, uHomeAddress,
                 uHomeCountry, uTravelBy, uName, uLastName, uNationality, uBirthday, uGender, uPassportNumber,
                 uPassportIssued, uPassportExpiration, uIdentificationNumber, uVisaType, uCurrency);
-//        visa.payViaPaypal();
-//        Assert.assertTrue(visa.isModalDisplayed(),"The modal isn't displayed.");
+        visa.payViaPaypal();
+        Assert.assertTrue(visa.isModalDisplayed(),"The modal isn't displayed.");
     }
     
     /**
@@ -64,6 +64,6 @@ public class VisaTest extends BaseTest {
      */
     @AfterTest
     public void CloseWindow() {
-//        driver.close();
+        driver.close();
     }
 }
