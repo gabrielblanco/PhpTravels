@@ -22,7 +22,7 @@ public class BasicInformation {
      */
     @FindBy(xpath = "//input[@data-ivisa-name='email']") WebElement email;
     @FindBy(xpath = "//input[@data-ivisa-name='arrival_date']") WebElement arrivalDate;
-    @FindBy(xpath = "//ul[contains(@class,'country-list')]") WebElement countryCode;
+    @FindBy(xpath = "//div[@class='flag-container']") WebElement phoneCode;
     @FindBy(xpath = "//input[@data-ivisa-name='phone']") WebElement phone;
     @FindBy(xpath = "//input[@data-ivisa-name='address']") WebElement homeAddress;
     @FindBy(xpath = "//select[@data-ivisa-name='home_country']") WebElement homeCountry;
@@ -71,7 +71,7 @@ public class BasicInformation {
                                 String uHomeAddress, String uHomeCountry, String uTravelBy){
         typeEmailAddress(uEmail);
         sendArrivalDate(uArrivalDate);
-//        selectCountryCode(uPhoneCode);
+        selectPhoneCode(uPhoneCode);
         typePhoneNumber(uPhoneNumber);
         typeHomeAddress(uHomeAddress);
         selectHomeCountry(uHomeCountry);
@@ -183,9 +183,9 @@ public class BasicInformation {
      * Select the phone country code.
      * @param uPhoneCode is the user phone country code.
      */
-    private void selectCountryCode(String uPhoneCode){
-        WebElement code = countryCode.findElement(By.xpath("/li[@data-dial-code='" + uPhoneCode + "']"));
-        code.click();
+    private void selectPhoneCode(String uPhoneCode){
+        phoneCode.click();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='flag-container']/ul/li[@data-dial-code='" + uPhoneCode + "']"))).click();
     }
 
     /**
