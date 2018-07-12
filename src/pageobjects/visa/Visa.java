@@ -69,7 +69,7 @@ public class Visa {
      * This method removes the first element of  the list
      */
     public void removeApplicant() {
-    	basicInformation.removeAppicant();
+    	basicInformation.removeApplicant();
     }
     
     /**
@@ -78,4 +78,13 @@ public class Visa {
     public void addApplicant() {
     	basicInformation.addAppliccant();
     }
+    
+    /**
+     * This method returns the current number of applicants.
+     * @return
+     */
+    public int getNumberOfApliccants() {
+    	return basicInformation.getNumberOfAplicants();
+    }
+    
 }

@@ -6,7 +6,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
-
 import java.util.concurrent.TimeUnit;
 
 public class BasicInformation {
@@ -78,6 +77,15 @@ public class BasicInformation {
     }
     
     /**
+     * This method returns the current number of applicants.
+     * @return
+     */
+    public int getNumberOfAplicants() {
+    	int numberOfApplicants=driver.findElements(By.xpath("//div[@class='container ivisa-before-review']//section[contains(@style,'display: block;')]")).size();
+    	return numberOfApplicants;
+    }
+    
+    /**
      * This method clicks on the add applicant button
      */
     public void addAppliccant() {
@@ -87,17 +95,11 @@ public class BasicInformation {
     /**
      * This method remove the first applicant of the list
      */
-    public void removeAppicant() {
+    public void removeApplicant() {
     	WebElement btnRemove = driver.findElement(By.xpath("//div[@class='container ivisa-before-review']//section[2]//div[1]//div[1]"));
     	btnRemove.click();
     }
     
-    /**
-     * This method verifies if
-     */
-    public void isApplicantRemove() {
-    	
-    }
     /**
      * Fills the applicant #1 information.
      * @param uName is the applicant name.

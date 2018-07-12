@@ -1,5 +1,7 @@
 package tests;
 
+import static org.testng.Assert.assertEquals;
+
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -42,6 +44,11 @@ public class VisaTest extends BaseTest {
         }
         visa.payViaPaypal();
     }
+    
+    /**
+     * The test case verifies that the user can remove an applicant when more than one applicant exist.
+     * @throws InterruptedException
+     */
     @Test
     public void removeApplicant() throws InterruptedException {
     	headerObjects= new HeaderObjects(driver);
@@ -50,7 +57,10 @@ public class VisaTest extends BaseTest {
     	visa= new Visa(driver);
     	visa.addApplicant();
     	Thread.sleep(3000);
+    	int oldNumberOfApplicants= visa.getNumberOfApliccants();
     	visa.removeApplicant();
+    	int actualNumberOfApplicants =visa.getNumberOfApliccants();
+    	assertEquals(actualNumberOfApplicants, oldNumberOfApplicants-1,"Applicant isn't removed");
     }
 
     /**
