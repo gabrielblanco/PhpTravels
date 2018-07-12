@@ -83,7 +83,7 @@ public class BasicInformation {
      * @return
      */
     public int getNumberOfAplicants() {
-    	int numberOfApplicants=driver.findElements(By.xpath("//div[@class='container ivisa-before-review']//section[contains(@style,'display: block;')]")).size();
+    	int numberOfApplicants = driver.findElements(By.xpath("//div[@class='container ivisa-before-review']//section[contains(@style,'display: block;')]")).size();
     	return numberOfApplicants;
     }
     
@@ -128,10 +128,14 @@ public class BasicInformation {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
-//        typePassportExpirationDate(uPassportExpiration);
         typeUserIdentificationNumber(uIdentificationNumber);
     }
 
+    /**
+     * Finish the last steps of Basic Information form.
+     * @param uVisaType is the user Canada visa type.
+     * @param uCurrency is the user currency to pay.
+     */
     public void finishVisaCost(String uVisaType, String uCurrency){
         selectVisaType(uVisaType);
         selectCurrency(uCurrency);
@@ -152,9 +156,27 @@ public class BasicInformation {
      * @param uArrivalDate is the user arrival date.
      */
     private void sendArrivalDate(String uArrivalDate){
-        WebElement date = driver.findElement(By.xpath("//div[@class='datepicker-days']//td[contains(text(),'" + uArrivalDate + "') and not (contains(@class, 'old'))]"));
+        String dateParts[] = uArrivalDate.split("-");
+        String year = dateParts[0];
+        String month  = dateParts[1];
+        String day  = dateParts[2];
+
+        WebElement cDayHeader = driver.findElement(By.xpath("//div[@class='datepicker-days']//th[@class='switch']"));
+        WebElement cMonthHeader = driver.findElement(By.xpath("//div[@class='datepicker-months']//th[@class='switch']"));
+
         arrivalDate.click();
-        date.click();
+
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(cDayHeader)).click();
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(cMonthHeader)).click();
+
+        WebElement cYear = driver.findElement(By.xpath("//div[@class='datepicker-years']//span[contains(text(),'" + year + "')]"));
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(cYear)).click();
+
+        WebElement cMonth = driver.findElement(By.xpath("//div[@class='datepicker-months']//span[" + Integer.parseInt(month) + "]"));
+        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(cMonth)).click();
+
+        WebElement cDay = driver.findElement(By.xpath("//div[@class='datepicker-days']//td[contains(text(),'" + day + "') and not (contains(@class, 'old'))]"));
+        new WebDriverWait(driver,20).until(ExpectedConditions.visibilityOf(cDay)).click();
     }
 
     /**
@@ -204,22 +226,24 @@ public class BasicInformation {
     /**
      * Handler for date modals.
      * @param title is the title of the modal.
-     * @param month is the month to select.
-     * @param day is the day to select.
-     * @param year is the year to select.
+     * @param date is the date selected by the user.
      */
-    private void modalHandler(String title, String month, String day, String year){
-//        WebElement modal = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]"));
+    private void modalHandler(String title, String date){
         WebElement modalMonth = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]/parent::div/parent::div//select[@id='dp_month']"));
         WebElement modalDay = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]/parent::div/parent::div//select[@id='dp_day']"));
         WebElement modalYear = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]/parent::div/parent::div//select[@id='dp_year']"));
         WebElement btnSave = driver.findElement(By.xpath("//h4[contains(@class,'modal-title') and (contains(text(),'" + title + "'))]/parent::div/parent::div//button[@id='dp_save']"));
 
+        String dateParts[] = date.split("-");
+        String year = dateParts[0];
+        String month  = dateParts[1];
+        String day  = dateParts[2];
+
         Select drpMonth = new Select(modalMonth);
-        drpMonth.selectByVisibleText(month);
+        drpMonth.selectByIndex(Integer.parseInt(month));
 
         Select drpDay = new Select(modalDay);
-        drpDay.selectByVisibleText(day);
+        drpDay.selectByIndex(Integer.parseInt(day));
 
         Select drpYear = new Select(modalYear);
         drpYear.selectByVisibleText(year);
@@ -260,9 +284,8 @@ public class BasicInformation {
      */
     private void typeBirthday(String uBirthday){
         birthday.click();
-        // 1995-07-06
         driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
-        modalHandler("Birthday", "7 - July", "6", "1995");
+        modalHandler("Birthday", uBirthday);
     }
 
     /**
@@ -289,9 +312,8 @@ public class BasicInformation {
      */
     private void typePassportIssuedDate(String uPassportIssued){
         passportIssued.click();
-        // 2008-06-10
         driver.manage().timeouts().implicitlyWait(3,TimeUnit.SECONDS);
-        modalHandler("Passport Issued", "6 - June", "10", "2008");
+        modalHandler("Passport Issued", uPassportIssued);
     }
 
     /**
@@ -299,10 +321,9 @@ public class BasicInformation {
      * @param uPassportExpiration is the user passport expiration date.
      */
     private void typePassportExpirationDate(String uPassportExpiration) throws InterruptedException {
-//        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(passportExpiration));
         Thread.sleep(2000);
         passportExpiration.click();
-        modalHandler("Passport Expiration", "10 - October", "11", "2030");
+        modalHandler("Passport Expiration", uPassportExpiration);
     }
 
     /**

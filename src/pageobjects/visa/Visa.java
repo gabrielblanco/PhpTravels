@@ -53,9 +53,9 @@ public class Visa {
                                      String uIdentificationNumber, String uVisaType, String uCurrency){
         basicInformation.fillGeneralInfo(uEmail, uArrivalDate, uPhoneCode, uPhoneNumber, uHomeAddress,
                 uHomeCountry, uTravelBy);
-        basicInformation.fillApplicantInfo(uName, uLastName, uNationality, uBirthday, uGender, uPassportNumber,
-                uPassportIssued, uPassportExpiration, uIdentificationNumber);
-        basicInformation.finishVisaCost(uVisaType, uCurrency);
+//        basicInformation.fillApplicantInfo(uName, uLastName, uNationality, uBirthday, uGender, uPassportNumber,
+//                uPassportIssued, uPassportExpiration, uIdentificationNumber);
+//        basicInformation.finishVisaCost(uVisaType, uCurrency);
     }
 
     /**

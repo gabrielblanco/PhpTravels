@@ -24,7 +24,7 @@ public class VisaTest extends BaseTest {
         driver=getDriver();
     }
 
-    @Test(dataProvider = "basicInformatinData", dataProviderClass = data_providers.VisaDataProvider.class, enabled= false)
+    @Test(dataProvider = "basicInformatinData", dataProviderClass = data_providers.VisaDataProvider.class, enabled = true)
     public void payUsingPaypal(String uEmail, String uArrivalDate, String uPhoneCode, String uPhoneNumber,
                              String uHomeAddress, String uHomeCountry, String uTravelBy, String uName,
                              String uLastName, String uNationality, String uBirthday, String uGender,
@@ -37,15 +37,15 @@ public class VisaTest extends BaseTest {
         visa.fillBasicInformation(uEmail, uArrivalDate, uPhoneCode, uPhoneNumber, uHomeAddress,
                 uHomeCountry, uTravelBy, uName, uLastName, uNationality, uBirthday, uGender, uPassportNumber,
                 uPassportIssued, uPassportExpiration, uIdentificationNumber, uVisaType, uCurrency);
-        visa.payViaPaypal();
-        Assert.assertTrue(visa.isModalDisplayed(),"The modal isn't displayed.");
+//        visa.payViaPaypal();
+//        Assert.assertTrue(visa.isModalDisplayed(),"The modal isn't displayed.");
     }
     
     /**
      * The test case verifies that the user can remove an applicant when more than one applicant exist.
      * @throws InterruptedException
      */
-    @Test
+    @Test (enabled = false)
     public void removeApplicant() throws InterruptedException {
     	headerObjects= new HeaderObjects(driver);
     	headerObjects.GoToVisa();
