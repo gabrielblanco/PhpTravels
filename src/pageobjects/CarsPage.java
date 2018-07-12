@@ -20,6 +20,7 @@ public class CarsPage {
     @FindBy(xpath = "//div[@id='collapseMap'][1]//div[@id='map']") WebElement mapContainer;
     @FindBy(id="searchform") WebElement searchFilterButton;
     @FindBy(xpath="(//table[@class='bgwhite table table-striped']//td)[1]") WebElement firstCar;
+    
     /**
      * Constructor method.
      * @param driver is the web driver.
@@ -37,8 +38,8 @@ public class CarsPage {
     }
 
     /**
-     * This method verifies if the first element of the list have 
-     * @return
+     * This method verifies that the number of stars of the first element of the list is equal to the stars of the filter
+     *      * @return
      */
     public boolean ValidateStarsFirstElement(int stars) {
     	if(stars==GetStarGradeFirstElement()) {
@@ -48,7 +49,10 @@ public class CarsPage {
     	}
     }
     
-    //This method counts the number of stars of the first element of the list
+    /**
+     *This method returns the number of stars of the first element of the list 
+     * @return
+     */
     public int GetStarGradeFirstElement() {
     	int numberOfStars=0;
     	WebElement star= firstCar.findElement(By.xpath("(//span[contains(@class,'go-right mob-fs10')]//i)[1]"));
@@ -62,7 +66,6 @@ public class CarsPage {
     	System.out.println("number of stars: "+ numberOfStars);
     	return numberOfStars;
     }
-    
     
     /**
      * Verifies is the container has a map inside.

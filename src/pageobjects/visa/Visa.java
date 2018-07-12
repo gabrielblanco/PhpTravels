@@ -64,4 +64,27 @@ public class Visa {
     public void payViaPaypal(){
         revisionPayment.clickOnPaypalButton();
     }
+    
+    /**
+     * This method removes the first element of  the list
+     */
+    public void removeApplicant() {
+    	basicInformation.removeApplicant();
+    }
+    
+    /**
+     * This method adds a new applicant 
+     */
+    public void addApplicant() {
+    	basicInformation.addAppliccant();
+    }
+    
+    /**
+     * This method returns the current number of applicants.
+     * @return
+     */
+    public int getNumberOfApliccants() {
+    	return basicInformation.getNumberOfAplicants();
+    }
+    
 }
