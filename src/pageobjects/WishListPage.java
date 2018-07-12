@@ -1,7 +1,5 @@
 package pageobjects;
 
-import java.util.LinkedList;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -11,8 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 public class WishListPage {
 	WebDriver driver;
 	@FindBy(xpath="//a[@href='#wishlist']") WebElement wishListButton;
-	LinkedList<WebElement> wishList;
-	@FindBy(id="wish6") WebElement firstWish;
+	@FindBy(xpath="(//div[@id='wishlist']//div[@class='panel-body']//div)[1]") WebElement firstWish;
 	
 	/**
 	 * Constructor method
@@ -21,8 +18,6 @@ public class WishListPage {
 	public WishListPage(WebDriver driverP) {
 		driver= driverP;
 		PageFactory.initElements(driver, this);
-		wishList= new LinkedList<>();
-		wishList.add(firstWish);
 	}
 	/**
 	 * This method redirects to the wish list view
@@ -35,7 +30,7 @@ public class WishListPage {
 	 * @return
 	 */
 	public String GetTitleOfFirstWish() {
-		String name= wishList.get(0).findElement(By.xpath("(//div[@class='panel-body']//b)[1]")).getText();
-		return name;
+			return firstWish.findElement(By.xpath("(//div[@class='panel-body']//b)[1]")).getText();
+	
 	}
 }
