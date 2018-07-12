@@ -1,6 +1,11 @@
 package tests;
 
+<<<<<<< HEAD
 import org.testng.Assert;
+=======
+import static org.testng.Assert.assertEquals;
+
+>>>>>>> 679e8e11ccd9c71126f290dcc9928cff56fefd11
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -23,7 +28,7 @@ public class VisaTest extends BaseTest {
         driver=getDriver();
     }
 
-    @Test(dataProvider = "basicInformatinData", dataProviderClass = data_providers.VisaDataProvider.class)
+    @Test(dataProvider = "basicInformatinData", dataProviderClass = data_providers.VisaDataProvider.class, enabled= false)
     public void payUsingPaypal(String uEmail, String uArrivalDate, String uPhoneCode, String uPhoneNumber,
                              String uHomeAddress, String uHomeCountry, String uTravelBy, String uName,
                              String uLastName, String uNationality, String uBirthday, String uGender,
@@ -41,6 +46,24 @@ public class VisaTest extends BaseTest {
                 uPassportIssued, uPassportExpiration, uIdentificationNumber, uVisaType, uCurrency);
         visa.payViaPaypal();
         Assert.assertTrue(visa.isModalDisplayed(),"The modal isn't displayed.");
+    }
+    
+    /**
+     * The test case verifies that the user can remove an applicant when more than one applicant exist.
+     * @throws InterruptedException
+     */
+    @Test
+    public void removeApplicant() throws InterruptedException {
+    	headerObjects= new HeaderObjects(driver);
+    	headerObjects.GoToVisa();
+    	Thread.sleep(3000);
+    	visa= new Visa(driver);
+    	visa.addApplicant();
+    	Thread.sleep(3000);
+    	int oldNumberOfApplicants= visa.getNumberOfApliccants();
+    	visa.removeApplicant();
+    	int actualNumberOfApplicants =visa.getNumberOfApliccants();
+    	assertEquals(actualNumberOfApplicants, oldNumberOfApplicants-1,"Applicant isn't removed");
     }
 
     /**

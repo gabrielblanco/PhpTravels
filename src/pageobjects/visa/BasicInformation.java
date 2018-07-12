@@ -7,8 +7,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+<<<<<<< HEAD
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+=======
+>>>>>>> 679e8e11ccd9c71126f290dcc9928cff56fefd11
 import java.util.concurrent.TimeUnit;
 
 public class BasicInformation {
@@ -28,6 +31,7 @@ public class BasicInformation {
     @FindBy(xpath = "//input[@data-ivisa-name='address']") WebElement homeAddress;
     @FindBy(xpath = "//select[@data-ivisa-name='home_country']") WebElement homeCountry;
     @FindBy(xpath = "//select[@data-ivisa-name='traveling_by']") WebElement travelingBy;
+    @FindBy(xpath="//div[@class='btn btn-sm btn-primary']") WebElement btnAddApplicant;
 
     /**
      * Web element selectors of Applicant #1
@@ -77,7 +81,31 @@ public class BasicInformation {
         selectHomeCountry(uHomeCountry);
         selectTravelingBy(uTravelBy);
     }
-
+    
+    /**
+     * This method returns the current number of applicants.
+     * @return
+     */
+    public int getNumberOfAplicants() {
+    	int numberOfApplicants=driver.findElements(By.xpath("//div[@class='container ivisa-before-review']//section[contains(@style,'display: block;')]")).size();
+    	return numberOfApplicants;
+    }
+    
+    /**
+     * This method clicks on the add applicant button
+     */
+    public void addAppliccant() {
+    	btnAddApplicant.click();
+    }
+    
+    /**
+     * This method remove the first applicant of the list
+     */
+    public void removeApplicant() {
+    	WebElement btnRemove = driver.findElement(By.xpath("//div[@class='container ivisa-before-review']//section[2]//div[1]//div[1]"));
+    	btnRemove.click();
+    }
+    
     /**
      * Fills the applicant #1 information.
      * @param uName is the applicant name.

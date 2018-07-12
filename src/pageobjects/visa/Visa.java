@@ -64,8 +64,34 @@ public class Visa {
     public void payViaPaypal(){
         revisionPayment.clickOnPaypalButton();
     }
+<<<<<<< HEAD
 
     public boolean isModalDisplayed(){
         return revisionPayment.isModalDisplayed();
     }
+=======
+    
+    /**
+     * This method removes the first element of  the list
+     */
+    public void removeApplicant() {
+    	basicInformation.removeApplicant();
+    }
+    
+    /**
+     * This method adds a new applicant 
+     */
+    public void addApplicant() {
+    	basicInformation.addAppliccant();
+    }
+    
+    /**
+     * This method returns the current number of applicants.
+     * @return
+     */
+    public int getNumberOfApliccants() {
+    	return basicInformation.getNumberOfAplicants();
+    }
+    
+>>>>>>> 679e8e11ccd9c71126f290dcc9928cff56fefd11
 }
