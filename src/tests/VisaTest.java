@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -35,12 +36,8 @@ public class VisaTest extends BaseTest {
         visa.fillBasicInformation(uEmail, uArrivalDate, uPhoneCode, uPhoneNumber, uHomeAddress,
                 uHomeCountry, uTravelBy, uName, uLastName, uNationality, uBirthday, uGender, uPassportNumber,
                 uPassportIssued, uPassportExpiration, uIdentificationNumber, uVisaType, uCurrency);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         visa.payViaPaypal();
+        Assert.assertTrue(visa.isModalDisplayed(),"The modal isn't displayed.");
     }
 
     /**

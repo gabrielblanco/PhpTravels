@@ -64,4 +64,8 @@ public class Visa {
     public void payViaPaypal(){
         revisionPayment.clickOnPaypalButton();
     }
+
+    public boolean isModalDisplayed(){
+        return revisionPayment.isModalDisplayed();
+    }
 }
