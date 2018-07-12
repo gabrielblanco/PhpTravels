@@ -7,11 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-<<<<<<< HEAD
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-=======
->>>>>>> 679e8e11ccd9c71126f290dcc9928cff56fefd11
 import java.util.concurrent.TimeUnit;
 
 public class BasicInformation {
