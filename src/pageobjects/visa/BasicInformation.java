@@ -101,9 +101,10 @@ public class BasicInformation {
         typePassportIssuedDate(uPassportIssued);
         try {
             typePassportExpirationDate(uPassportExpiration);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e.toString());
         }
+//        typePassportExpirationDate(uPassportExpiration);
         typeUserIdentificationNumber(uIdentificationNumber);
     }
 
@@ -274,9 +275,8 @@ public class BasicInformation {
      * @param uPassportExpiration is the user passport expiration date.
      */
     private void typePassportExpirationDate(String uPassportExpiration) throws InterruptedException {
+//        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(passportExpiration));
         Thread.sleep(2000);
-        // 2030-10-11
-        new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(passportExpiration));
         passportExpiration.click();
         modalHandler("Passport Expiration", "10 - October", "11", "2030");
     }
