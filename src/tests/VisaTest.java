@@ -32,6 +32,9 @@ public class VisaTest extends BaseTest {
         headerObjects = new HeaderObjects(driver);
         visa = new Visa(driver);
 
+        /**
+         * Test
+         */
         headerObjects.GoToVisa();
         visa.fillBasicInformation(uEmail, uArrivalDate, uPhoneCode, uPhoneNumber, uHomeAddress,
                 uHomeCountry, uTravelBy, uName, uLastName, uNationality, uBirthday, uGender, uPassportNumber,
