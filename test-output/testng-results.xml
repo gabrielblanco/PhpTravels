@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="1" total="2" passed="0">
+<testng-results skipped="0" failed="0" ignored="3" total="4" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="38830" started-at="2018-07-12T14:59:21Z" finished-at="2018-07-12T15:00:00Z">
+  <suite name="Suite" duration-ms="68515" started-at="2018-07-12T17:47:00Z" finished-at="2018-07-12T17:48:08Z">
     <groups>
     </groups>
-    <test name="ChromeTest" duration-ms="38830" started-at="2018-07-12T14:59:21Z" finished-at="2018-07-12T15:00:00Z">
-      <class name="tests.VisaTest">
-        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:tests.VisaTest@1d057a39]" name="initializeTestBaseSetup" is-config="true" duration-ms="27191" started-at="2018-07-12T14:59:21Z" finished-at="2018-07-12T14:59:49Z">
+    <test name="ChromeTest" duration-ms="68515" started-at="2018-07-12T17:47:00Z" finished-at="2018-07-12T17:48:08Z">
+      <class name="tests.HotelTest">
+        <test-method status="PASS" signature="initializeTestBaseSetup(java.lang.String, java.lang.String)[pri:0, instance:tests.HotelTest@1d057a39]" name="initializeTestBaseSetup" is-config="true" duration-ms="16081" started-at="2018-07-12T17:47:00Z" finished-at="2018-07-12T17:47:16Z">
           <params>
             <param index="0">
               <value>
@@ -23,59 +23,31 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeTestBaseSetup -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.VisaTest@1d057a39]" name="setUp" is-config="true" duration-ms="1" started-at="2018-07-12T14:59:49Z" finished-at="2018-07-12T14:59:49Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:tests.HotelTest@1d057a39]" name="setUp" is-config="true" duration-ms="0" started-at="2018-07-12T17:47:16Z" finished-at="2018-07-12T17:47:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="FAIL" signature="removeApplicant()[pri:0, instance:tests.VisaTest@1d057a39]" name="removeApplicant" duration-ms="11622" started-at="2018-07-12T14:59:49Z" finished-at="2018-07-12T15:00:00Z">
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[Applicant isn't removed expected [2] but found [1]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: Applicant isn't removed expected [2] but found [1]
-at org.testng.Assert.fail(Assert.java:96)
-at org.testng.Assert.failNotEquals(Assert.java:776)
-at org.testng.Assert.assertEqualsImpl(Assert.java:137)
-at org.testng.Assert.assertEquals(Assert.java:118)
-at org.testng.Assert.assertEquals(Assert.java:652)
-at tests.VisaTest.removeApplicant(VisaTest.java:58)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
-at org.testng.internal.Invoker.invokeMethod(Invoker.java:580)
-at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:716)
-at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:988)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-at org.testng.TestRunner.privateRun(TestRunner.java:648)
-at org.testng.TestRunner.run(TestRunner.java:505)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
-at org.testng.SuiteRunner.run(SuiteRunner.java:364)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
-at org.testng.TestNG.runSuites(TestNG.java:1049)
-at org.testng.TestNG.run(TestNG.java:1017)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+        <test-method status="PASS" signature="AddHotelToWishList(java.lang.String, java.lang.String)[pri:0, instance:tests.HotelTest@1d057a39]" name="AddHotelToWishList" duration-ms="52416" started-at="2018-07-12T17:47:16Z" data-provider="loginAuthenticationWithOutURL" finished-at="2018-07-12T17:48:08Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[user@phptravels.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[demouser]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- removeApplicant -->
-        <test-method status="PASS" signature="CloseWindow()[pri:0, instance:tests.VisaTest@1d057a39]" name="CloseWindow" is-config="true" duration-ms="0" started-at="2018-07-12T15:00:00Z" finished-at="2018-07-12T15:00:00Z">
+        </test-method> <!-- AddHotelToWishList -->
+        <test-method status="PASS" signature="CloseWindow()[pri:0, instance:tests.HotelTest@1d057a39]" name="CloseWindow" is-config="true" duration-ms="1" started-at="2018-07-12T17:48:08Z" finished-at="2018-07-12T17:48:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- CloseWindow -->
-      </class> <!-- tests.VisaTest -->
+      </class> <!-- tests.HotelTest -->
     </test> <!-- ChromeTest -->
   </suite> <!-- Suite -->
 </testng-results>

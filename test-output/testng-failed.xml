@@ -1,18 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]">
-  <parameter name="baseUrl" value="https://www.phptravels.net"/>
-  <parameter name="browser" value="chrome"/>
-  <test thread-count="5" name="ChromeTest(failed)">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tests.VisaTest">
+      <class name="tests.HotelTest">
         <methods>
-          <include name="initializeTestBaseSetup"/>
-          <include name="setUp"/>
-          <include name="removeApplicant"/>
           <include name="CloseWindow"/>
+          <include name="initializeTestBaseSetup"/>
+          <include name="AddHotelToWishList"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- tests.VisaTest -->
+      </class> <!-- tests.HotelTest -->
     </classes>
-  </test> <!-- ChromeTest(failed) -->
-</suite> <!-- Failed suite [Suite] -->
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
