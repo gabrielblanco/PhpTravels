@@ -64,6 +64,12 @@ public class Visa {
     public void payViaPaypal(){
         revisionPayment.clickOnPaypalButton();
     }
+<<<<<<< HEAD
+
+    public boolean isModalDisplayed(){
+        return revisionPayment.isModalDisplayed();
+    }
+=======
     
     /**
      * This method removes the first element of  the list
@@ -87,4 +93,5 @@ public class Visa {
     	return basicInformation.getNumberOfAplicants();
     }
     
+>>>>>>> 679e8e11ccd9c71126f290dcc9928cff56fefd11
 }

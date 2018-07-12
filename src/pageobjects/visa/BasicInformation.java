@@ -5,7 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+<<<<<<< HEAD
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+=======
+>>>>>>> 679e8e11ccd9c71126f290dcc9928cff56fefd11
 import java.util.concurrent.TimeUnit;
 
 public class BasicInformation {
@@ -123,9 +129,10 @@ public class BasicInformation {
         typePassportIssuedDate(uPassportIssued);
         try {
             typePassportExpirationDate(uPassportExpiration);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e.toString());
         }
+//        typePassportExpirationDate(uPassportExpiration);
         typeUserIdentificationNumber(uIdentificationNumber);
     }
 
@@ -296,9 +303,9 @@ public class BasicInformation {
      * @param uPassportExpiration is the user passport expiration date.
      */
     private void typePassportExpirationDate(String uPassportExpiration) throws InterruptedException {
+//        new WebDriverWait(driver, 20).until(ExpectedConditions.elementToBeClickable(passportExpiration));
         Thread.sleep(2000);
         passportExpiration.click();
-        // 2030-10-11
         modalHandler("Passport Expiration", "10 - October", "11", "2030");
     }
 
