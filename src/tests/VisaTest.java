@@ -1,11 +1,7 @@
 package tests;
 
-<<<<<<< HEAD
 import org.testng.Assert;
-=======
 import static org.testng.Assert.assertEquals;
-
->>>>>>> 679e8e11ccd9c71126f290dcc9928cff56fefd11
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -37,9 +33,6 @@ public class VisaTest extends BaseTest {
         headerObjects = new HeaderObjects(driver);
         visa = new Visa(driver);
 
-        /**
-         * Test
-         */
         headerObjects.GoToVisa();
         visa.fillBasicInformation(uEmail, uArrivalDate, uPhoneCode, uPhoneNumber, uHomeAddress,
                 uHomeCountry, uTravelBy, uName, uLastName, uNationality, uBirthday, uGender, uPassportNumber,
