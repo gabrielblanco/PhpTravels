@@ -10,6 +10,7 @@ public class WishListPage {
 	WebDriver driver;
 	@FindBy(xpath="//a[@href='#wishlist']") WebElement wishListButton;
 	@FindBy(xpath="(//div[@id='wishlist']//div[@class='panel-body']//div)[1]") WebElement firstWish;
+	@FindBy(xpath = "//div[@id='wishlist']/div/div[1]//a[contains(text(),'Preview')]") WebElement firstPreviewButton;
 	
 	/**
 	 * Constructor method
@@ -31,5 +32,12 @@ public class WishListPage {
 	 */
 	public String GetTitleOfFirstWish() {
 		return firstWish.findElement(By.xpath("(//div[@class='panel-body']//b)[1]")).getText();
+	}
+
+	/**
+	 * Goes to the first wish-list hotel preview page.
+	 */
+	public void goToPreview() {
+		firstPreviewButton.click();
 	}
 }
