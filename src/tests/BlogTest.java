@@ -1,5 +1,7 @@
 package tests;
 
+import static org.testng.Assert.assertTrue;
+
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -8,7 +10,7 @@ import pageobjects.HeaderObjects;
 
 public class BlogTest extends BaseTest{
 	
-	BlogPage blockPage;
+	BlogPage blogPage;
 	HeaderObjects headerObjects;
 	
 	@BeforeClass
@@ -25,8 +27,10 @@ public class BlogTest extends BaseTest{
 		headerObjects=new HeaderObjects(driver);
 		headerObjects.GoToBlog();
 		Thread.sleep(3000);
-		blockPage= new BlogPage(driver);
-		blockPage.quickSearch("dogsAndCats");
+		blogPage= new BlogPage(driver);
+		blogPage.quickSearch("Virgin");
+		Thread.sleep(3000);
+		assertTrue(blogPage.noResultdDisplayed());
 	}
 	
 	/**

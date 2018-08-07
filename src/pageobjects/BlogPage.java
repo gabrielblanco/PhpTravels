@@ -1,5 +1,6 @@
 package pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,9 +10,10 @@ public class BlogPage {
     WebDriver driver;
     @FindBy(name="s") 
     WebElement findInput;
-    @FindBy(xpath="//div[@class='panel-body']") 
+    @FindBy(xpath="(//div[@class='panel-body'])[2]//span") 
     WebElement findButton;
-    
+	@FindBy(xpath="(//div[@class='panel-body'])[1]") 
+	WebElement list;
    /**
     * Constructor method
     * @param driver
@@ -44,5 +46,21 @@ public class BlogPage {
 		this.typeBlogName(blogName);
 		this.ClickOnFind();
 	}
+	
+	public Boolean noResultdDisplayed() {
+		  try {
+	            WebElement result = list.findElement(By.xpath("(//div[@class='panel-body'])[1]//h1"));
+	            if(result.isDisplayed()) {
+		            return true;
+	            }else {
+		            return false;
+	            }
+	        } catch (Exception e) {
+	            System.out.println("Element no found");
+	            return false;
+	        }
+	}
+	
+		
 	
 }
