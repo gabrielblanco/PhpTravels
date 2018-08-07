@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
-
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -18,8 +16,8 @@ public class BaseTest {
 	public static WebDriver driver;
 	String path="C:\\Screen\\";
 	public static String fireFoxDriverPath="resources\\geckodriver.exe";
-//	public static String chromeDriverPath="resources\\chromedriver.exe";
-	public static String chromeDriverPath="C:\\Users\\gapuser\\Documents\\WebDriver\\chromedriver\\chromedriver.exe";
+	public static String chromeDriverPath="resources\\chromedriver.exe";
+	//	public static String chromeDriverPath="C:\\Users\\gapuser\\Documents\\WebDriver\\chromedriver\\chromedriver.exe";
 	
 	/**
 	 * this method returns a webDriver
@@ -96,7 +94,7 @@ public class BaseTest {
 	 */
 	public  void captureScreenShot() throws IOException {
 	    File screenshotFile=((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
-	    FileUtils.copyFile(screenshotFile,new File(path+GetTimeStampValue()+".png"));
+//	    FileUtils.copyFile(screenshotFile,new File(path+GetTimeStampValue()+".png"));
 	}
 	/**
 	 * This test case returns the currently date and the exactly hour
