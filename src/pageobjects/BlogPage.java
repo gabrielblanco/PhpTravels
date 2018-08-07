@@ -47,6 +47,10 @@ public class BlogPage {
 		this.ClickOnFind();
 	}
 	
+	/**
+	 * This method verifies if the the "no found message is displayed"
+	 * @return
+	 */
 	public Boolean noResultdDisplayed() {
 		  try {
 	            WebElement result = list.findElement(By.xpath("(//div[@class='panel-body'])[1]//h1"));
