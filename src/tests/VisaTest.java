@@ -40,6 +40,17 @@ public class VisaTest extends BaseTest {
         visa.payViaPaypal();
         Assert.assertTrue(visa.isModalDisplayed(),"The modal isn't displayed.");
     }
+
+    /**
+     * Verifies that basic information input fields are required.
+     */
+    @Test
+    public void varifyRequiredInputFields() {
+        headerObjects= new HeaderObjects(driver);
+        headerObjects.GoToVisa();
+        visa = new Visa(driver);
+        Assert.assertTrue(visa.verifyRequiredFields());
+    }
     
     /**
      * The test case verifies that the user can remove an applicant when more than one applicant exist.
@@ -57,14 +68,6 @@ public class VisaTest extends BaseTest {
     	visa.removeApplicant();
     	int actualNumberOfApplicants =visa.getNumberOfApliccants();
     	assertEquals(actualNumberOfApplicants, oldNumberOfApplicants-1,"Applicant isn't removed");
-    }
-
-    @Test
-    public void varifyRequiredInputFields() {
-        headerObjects= new HeaderObjects(driver);
-        headerObjects.GoToVisa();
-        visa = new Visa(driver);
-        Assert.assertTrue(visa.verifyRequiredFields());
     }
 
     /**
