@@ -11,7 +11,7 @@
             <!--<class name="tests.CarTest"/>-->
             <!--<class name="tests.VisaTest"/>-->
         	<!--<class name="tests.TourTest"/>-->
-            <class name="tests.BookingTest"/>
+       		<class name="tests.BlogTest"/>
         </classes>
     </test>
 </suite>
