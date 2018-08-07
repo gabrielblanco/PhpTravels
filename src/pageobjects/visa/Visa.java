@@ -59,6 +59,14 @@ public class Visa {
     }
 
     /**
+     * Verifies if the fields from Basic Information are required.
+     * @return the state of the input fields.
+     */
+    public boolean verifyRequiredFields(){
+        return  basicInformation.allFieldsAreReuired();
+    }
+
+    /**
      * Pays the travel by paypal method.
      */
     public void payViaPaypal(){

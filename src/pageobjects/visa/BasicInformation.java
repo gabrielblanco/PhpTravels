@@ -47,6 +47,7 @@ public class BasicInformation {
      * Web element selectors of BasicInfo
      */
     @FindBy(xpath = "//select[@data-ivisa-name='currency']") WebElement currency;
+    @FindBy(xpath = "//section//div[@class='ivisa_submit_error_message']") WebElement requiredFieldsAlert;
     @FindBy(xpath = "//button[contains(@class,'ivisa-submit-step1-button')]") WebElement nextBtn;
 
     /**
@@ -141,6 +142,15 @@ public class BasicInformation {
         selectVisaType(uVisaType);
         selectCurrency(uCurrency);
         clickOnNextButton();
+    }
+
+    /**
+     * Verifies if all input fields are required.
+     * @return the state of the required input fields.
+     */
+    public boolean allFieldsAreReuired() {
+        clickOnNextButton();
+        return requiredFieldsAlert.isDisplayed();
     }
 
     /**

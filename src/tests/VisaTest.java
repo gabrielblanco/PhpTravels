@@ -24,7 +24,7 @@ public class VisaTest extends BaseTest {
         driver=getDriver();
     }
 
-    @Test(dataProvider = "basicInformatinData", dataProviderClass = data_providers.VisaDataProvider.class, enabled = true)
+    @Test(dataProvider = "basicInformatinData", dataProviderClass = data_providers.VisaDataProvider.class, enabled = false)
     public void payUsingPaypal(String uEmail, String uArrivalDate, String uPhoneCode, String uPhoneNumber,
                              String uHomeAddress, String uHomeCountry, String uTravelBy, String uName,
                              String uLastName, String uNationality, String uBirthday, String uGender,
@@ -59,11 +59,19 @@ public class VisaTest extends BaseTest {
     	assertEquals(actualNumberOfApplicants, oldNumberOfApplicants-1,"Applicant isn't removed");
     }
 
+    @Test
+    public void varifyRequiredInputFields() {
+        headerObjects= new HeaderObjects(driver);
+        headerObjects.GoToVisa();
+        visa = new Visa(driver);
+        Assert.assertTrue(visa.verifyRequiredFields());
+    }
+
     /**
      * Tears down the web driver
      */
-    @AfterTest
-    public void CloseWindow() {
-        driver.close();
-    }
+//    @AfterTest
+//    public void CloseWindow() {
+//        driver.close();
+//    }
 }
