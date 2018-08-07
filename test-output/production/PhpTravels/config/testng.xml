@@ -6,12 +6,12 @@
     <test name="ChromeTest">
         <classes>
             <!--<class name="tests.HotelTest"/>-->
-            <!--<class name="tests.HotelTest"/>-->
+            <class name="tests.LoginTest"/>
             <!--<class name="tests.FlightTest"/>-->
             <!--<class name="tests.CarTest"/>-->
             <!--<class name="tests.VisaTest"/>-->
         	<!--<class name="tests.TourTest"/>-->
-            <class name="tests.BookingTest"/>
+            <!--<class name="tests.BookingTest"/>-->
         </classes>
     </test>
 </suite>

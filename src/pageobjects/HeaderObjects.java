@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HeaderObjects {
   
@@ -42,6 +44,7 @@ public class HeaderObjects {
 	 * This method displays "My account" drop down 
 	 */
 	public void DisplayMyAccountDropDown() {
+		new WebDriverWait(driver, 5).until(ExpectedConditions.elementToBeClickable(MyAcountDropDown));
 		MyAcountDropDown.click();
 	}
   
