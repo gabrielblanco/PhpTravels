@@ -48,7 +48,7 @@ public class BlogPage {
 	}
 	
 	/**
-	 * This method verifies if the the "no found message is displayed"
+	 * This method verifies if the the "no results found" message is displayed
 	 * @return
 	 */
 	public Boolean noResultdDisplayed() {
