@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage  {
 	WebDriver driver;
@@ -64,12 +66,13 @@ public class LoginPage  {
 	 * @param email
 	 */
 	public void enterUserEmail(String email) {
+		new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOf(userName));
 		this.userName.clear();
 		this.userName.sendKeys(email);
 	}
 	/**
 	 * This method enters the user's password
-	 * @param email
+	 * @param password
 	 */
 	public void enterUserPassword(String password) {
 		this.password.clear();
@@ -77,7 +80,6 @@ public class LoginPage  {
 	}
 	/**
 	 * This method click on the Login button
-	 * @param email
 	 */
 	public void clickOnLogin() {
 		this.submit_button.click();

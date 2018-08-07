@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WishListPage {
 	WebDriver driver;
@@ -24,6 +26,12 @@ public class WishListPage {
 	 * This method redirects to the wish list view
 	 */
 	public void GoToWishList() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		new WebDriverWait(driver, 30 ).until(ExpectedConditions.elementToBeClickable(wishListButton));
 		wishListButton.click();
 	}
 	/**
@@ -38,6 +46,7 @@ public class WishListPage {
 	 * Goes to the first wish-list hotel preview page.
 	 */
 	public void goToPreview() {
+		new WebDriverWait(driver, 10 ).until(ExpectedConditions.visibilityOf(firstPreviewButton));
 		firstPreviewButton.click();
 	}
 }
