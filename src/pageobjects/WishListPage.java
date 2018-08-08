@@ -39,7 +39,9 @@ public class WishListPage {
 	 * @return
 	 */
 	public String GetTitleOfFirstWish() {
-		return firstWish.findElement(By.xpath("(//div[@class='panel-body']//b)[1]")).getText();
+		WebElement title= firstWish.findElement(By.xpath("(//div[@class='panel-body']//b)[1]"));
+		String titleTex= title.getText();
+		return titleTex;
 	}
 
 	/**
@@ -48,5 +50,19 @@ public class WishListPage {
 	public void goToPreview() {
 		new WebDriverWait(driver, 10 ).until(ExpectedConditions.visibilityOf(firstPreviewButton));
 		firstPreviewButton.click();
+	}
+		/**
+	 * This method removes the first wish of the list
+	 */
+	public void removeWish() {
+		WebElement removeBtn= firstWish.findElement(By.xpath("//span[@class='btn btn-sm btn-block btn-danger removewish remove_btn']"));
+		removeBtn.click();
+	}
+	
+	/**
+	 * this method switches to the confirmation popup
+	 */
+	public void confirmRemove() {
+		driver.switchTo().alert().accept();
 	}
 }
