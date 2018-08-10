@@ -39,6 +39,18 @@ WishListPage wishListPage;
     }
 
     /**
+     * Filter hotels by price range.
+     */
+    @Test
+    public void filterByPriceRange() {
+        headerObjects = new HeaderObjects(driver);
+        headerObjects.GoToHotels();
+        hotelPage = new HotelsPage(driver);
+        hotelPage.findByPriceRange(70, 380);
+        hotelPage.isPriceResult(70, 380);
+    }
+
+    /**
      * Filter a hotel by property type.
      */
     @Test (enabled = false)
@@ -69,7 +81,7 @@ WishListPage wishListPage;
  * @param password
  * @throws InterruptedException 
  */
-@Test(dataProvider = "loginAuthenticationWithOutURL", dataProviderClass= data_providers.LoginDataProvider.class)
+@Test(dataProvider = "loginAuthenticationWithOutURL", dataProviderClass= data_providers.LoginDataProvider.class, enabled=false)
 public void AddHotelToWishList(String email,String password) throws InterruptedException {
 	headerObjects= new HeaderObjects(driver);
 	headerObjects.DisplayMyAccountDropDown();
@@ -100,6 +112,6 @@ public void AddHotelToWishList(String email,String password) throws InterruptedE
  */
 @AfterTest
 public void CloseWindow() {
-	//driver.close();
+	driver.close();
 }
 }

@@ -1,10 +1,14 @@
 package pageobjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import java.util.List;
 
 public class HotelsPage {
 
@@ -14,14 +18,22 @@ public class HotelsPage {
 	WebDriver driver;
 
 	/**
+	 * This is the offsetRange for price range slider.
+	 */
+	private final int offsetRange = 176;
+
+	/**
 	 * Web element selectors.
 	 */
 	@FindBy(xpath="//div[@id='40']//a[@class='tooltip_flip tooltip-effect-1']") WebElement addToWishList;
 	@FindBy(name = "checkin") WebElement checkIn;
 	@FindBy(name = "checkout") WebElement checkOut;
+	@FindBy(xpath = "//div[@class='slider-handle round'][1]") WebElement minRange;
+	@FindBy(xpath = "//div[@class='slider-handle round'][2]") WebElement maxRange;
+	@FindBy(className = "tooltip-inner") WebElement tooltipValue;
+	@FindBy(className = "slider-selection") WebElement sliderBar;
 	@FindBy(xpath = "//form[@name='fCustomHotelSearch']//button[@type='submit']") WebElement hotelSearchBtn;
 	@FindBy(className = "itemscontainer") WebElement itemsContainer;
-	//LinkedList<WebElement> hotelsList;
 	@FindBy(xpath="	(//table[@class='bgwhite table table-striped']//tr)[1]") WebElement firstHotel;
 	@FindBy(id = "searchform") WebElement searchFilterButton;
 	
@@ -47,6 +59,45 @@ public class HotelsPage {
 	 */
 	public void addHotelToWishList() {
 	  firstHotel.findElement(By.xpath("(//div[contains(@data-placement, 'left')])[1]")).click();
+	}
+
+	/**
+	 * Filter hotels by the given price range.
+	 * @param minPrice is the minimum price.
+	 * @param maxPrice is the maximum price.
+	 */
+	public void findByPriceRange(int minPrice, int maxPrice){
+		if (validatePriceRange(minPrice, maxPrice)) {
+			setMinRange(minPrice);
+			setMaxRange(maxPrice);
+			searchFilterButton.click();
+		} else {
+			System.out.println("The price values must be between $50 and $500. [$50 - $500]");
+		}
+	}
+
+	public boolean isPriceResult(int minPrice, int maxPrice){
+		boolean match = false;
+		List<WebElement> hotelsList = driver.findElements(By.xpath("//table[@class='bgwhite table table-striped']//tr//div[3]//b"));
+		System.out.println("Price Range: " + minPrice + ", " + maxPrice);
+		for (WebElement hotel : hotelsList) {
+			String text = hotel.getText();
+			String textResult = text.substring(1);
+			((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", hotel);
+			match = (Integer.parseInt(textResult) >= minPrice) && ((Integer.parseInt(textResult) <= maxPrice));
+			System.out.println("Dollars: " + hotel.getText() + " - Match: " + match);
+		}
+		return match;
+	}
+
+	/**
+	 * Validates the prices must be between $50 and $500.
+	 * @param minPrice is the minimum price.
+	 * @param maxPrice is the maximum price.
+	 * @return if the price is in the range.
+	 */
+	private boolean validatePriceRange(int minPrice, int maxPrice) {
+		return (minPrice >= 50) && (maxPrice <= 500);
 	}
 
 	/**
@@ -95,6 +146,46 @@ public class HotelsPage {
 	public boolean noHotelsFound() {
 		WebElement message = itemsContainer.findElement(By.tagName("h2"));
 		return message.isEnabled();
+	}
+
+	/**
+	 * Search the minimum price by slider percentage.
+	 * @param minPrice is the minimum price.
+	 */
+	private void setMinRange(int minPrice) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		for (double i=0; i<=100; i+=0.5) {
+			new Actions(driver).moveToElement(tooltipValue).build().perform();
+			String priceRange = tooltipValue.getText();
+			String[] values = priceRange.split(" : ");
+			String min = values[0];
+			if (Integer.parseInt(min) != minPrice) {
+				js.executeScript("arguments[0].setAttribute('style', 'left:"+ i + "%')", minRange);
+				minRange.click();
+			} else {
+				break;
+			}
+		}
+	}
+
+	/**
+	 * Search the maximum price by slider percentage.
+	 * @param maxPrice is the maximum price.
+	 */
+	private void setMaxRange(int maxPrice) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		for (double i=100; i>=0; i-=0.5) {
+			new Actions(driver).moveToElement(tooltipValue).build().perform();
+			String priceRange = tooltipValue.getText();
+			String[] values = priceRange.split(" : ");
+			String max = values[1];
+			if (Integer.parseInt(max) != maxPrice) {
+				js.executeScript("arguments[0].setAttribute('style', 'left:"+ i + "%')", maxRange);
+				maxRange.click();
+			} else {
+				break;
+			}
+		}
 	}
 
 	/**
